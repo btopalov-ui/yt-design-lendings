@@ -54,6 +54,43 @@
     })
   }
 
+  /* ─── Слоган «Как это работает»: слова загораются по мере прокрутки ─── */
+  const tagline = $('[data-tagline]')
+  /* ─── Финальный блок: фото медленно смещается при прокрутке ─── */
+  const finalBox = $('.bf-final__box')
+  const finalPhoto = finalBox && $('img', finalBox)
+  if (!reduced && (tagline || finalPhoto)) {
+    const words = tagline ? $$('span', tagline) : []
+    let ticking = false
+    const onFrame = () => {
+      ticking = false
+      const vh = window.innerHeight
+      const line = vh * 0.62
+      words.forEach((w) => w.classList.toggle('is-lit', w.getBoundingClientRect().top < line))
+      if (finalPhoto) {
+        const r = finalBox.getBoundingClientRect()
+        if (r.bottom > -200 && r.top < vh + 200) {
+          const p = r.top + r.height / 2 - vh / 2
+          finalPhoto.style.transform = `translate3d(0, ${(p * -0.12).toFixed(1)}px, 0)`
+        }
+      }
+    }
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true
+          requestAnimationFrame(onFrame)
+        }
+      },
+      { passive: true },
+    )
+    window.addEventListener('resize', onFrame)
+    onFrame()
+  } else if (tagline) {
+    $$('span', tagline).forEach((w) => w.classList.add('is-lit'))
+  }
+
   /* ─── Переход к каталогу ─── */
   const toCatalog = () => $('#bf-catalog')?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' })
   $$('[data-to-catalog]').forEach((a) =>
@@ -284,12 +321,43 @@
     const PAGE = 18
     const state = { type: 'all', region: 'all', limit: PAGE }
 
-    const apply = () => {
+    // FLIP: запоминаем, где были видимые карточки, переключаем, затем плавно доводим их до новых мест;
+    // появившиеся карточки выплывают снизу
+    const animateCards = (before, shownBefore) => {
+      if (reduced) return
+      cards.forEach((c) => {
+        if (c.hidden) return
+        if (!shownBefore.has(c)) {
+          c.classList.add('is-enter')
+          void c.offsetWidth
+          c.classList.add('is-entering')
+          c.classList.remove('is-enter')
+          c.addEventListener('transitionend', () => c.classList.remove('is-entering'), { once: true })
+          return
+        }
+        const a = before.get(c)
+        const b = c.getBoundingClientRect()
+        const dx = a.left - b.left
+        const dy = a.top - b.top
+        if (!dx && !dy) return
+        c.classList.remove('is-moving')
+        c.style.transform = `translate(${dx}px, ${dy}px)`
+        void c.offsetWidth
+        c.classList.add('is-moving')
+        c.style.transform = ''
+        c.addEventListener('transitionend', () => c.classList.remove('is-moving'), { once: true })
+      })
+    }
+
+    const apply = (animate = true) => {
+      const shownBefore = new Set(cards.filter((c) => !c.hidden))
+      const before = new Map([...shownBefore].map((c) => [c, c.getBoundingClientRect()]))
       const match = cards.filter(
         (c) => (state.type === 'all' || c.dataset.type === state.type) && (state.region === 'all' || c.dataset.region === state.region),
       )
       cards.forEach((c) => (c.hidden = true))
       match.slice(0, state.limit).forEach((c) => (c.hidden = false))
+      if (animate) animateCards(before, shownBefore)
       const shown = Math.min(state.limit, match.length)
       const rest = match.length - shown
       const next = Math.min(PAGE, rest)
@@ -334,6 +402,6 @@
         toCatalog()
       }),
     )
-    apply()
+    apply(false)
   }
 })()
