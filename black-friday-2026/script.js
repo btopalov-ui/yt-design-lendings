@@ -187,6 +187,92 @@
     restart()
   }
 
+  /* ─── Подборка: закреплённая лента, которая едет при прокрутке ─── */
+  const sel = $('[data-selection]')
+  if (sel) {
+    const frame = $('.bf-selection__frame', sel)
+    const track = $('[data-selection-track]', sel)
+    const head = $('.bf-head', sel)
+    const mq = window.matchMedia('(min-width: 901px)')
+    let pinned = false
+    let dist = 0
+    let scale = 1
+    let ticking = false
+
+    const update = () => {
+      ticking = false
+      if (!pinned) return
+      const top = sel.getBoundingClientRect().top
+      const progress = Math.min(1, Math.max(0, -top / Math.max(dist, 1)))
+      const x = -progress * dist
+      track.style.transform = `translate3d(${x.toFixed(1)}px, 0, 0) scale(${scale})`
+      const vw = window.innerWidth
+      Array.from(track.children).forEach((card) => {
+        const center = (card.offsetLeft + card.offsetWidth / 2) * scale + x
+        const k = Math.min(1, Math.max(0, 1 - center / vw)) // 0 у правого края → 1 у левого
+        card.style.transform = `translateY(${(40 - 50 * k).toFixed(1)}px) rotate(${(4 - 6 * k).toFixed(2)}deg)`
+      })
+    }
+    const unpin = () => {
+      pinned = false
+      sel.classList.remove('is-pinned')
+      sel.style.height = ''
+      track.style.transform = ''
+      track.style.marginBottom = ''
+      Array.from(track.children).forEach((c) => (c.style.transform = ''))
+    }
+    const measure = () => {
+      if (!mq.matches || reduced) return unpin()
+      pinned = true
+      sel.classList.add('is-pinned')
+      track.style.transform = ''
+      // Заголовок с лентой должны влезть в экран по высоте. На невысоких экранах (ноутбуки) уменьшаем
+      // ленту, чтобы эффект остался; если пришлось бы сжать сильнее 70% — обычная лента без закрепления.
+      const headH = track.getBoundingClientRect().top - head.getBoundingClientRect().top
+      const trackH = track.offsetHeight
+      scale = Math.min(1, (window.innerHeight - headH) / trackH)
+      if (scale < 0.7) return unpin()
+      // отрицательный отступ снизу компенсирует пустое место после уменьшения ленты
+      track.style.marginBottom = `${(-(1 - scale) * trackH).toFixed(1)}px`
+      dist = Math.max(0, track.scrollWidth * scale - window.innerWidth + 32)
+      sel.style.height = `${window.innerHeight + dist}px`
+      update()
+    }
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking && pinned) {
+          ticking = true
+          requestAnimationFrame(update)
+        }
+      },
+      { passive: true },
+    )
+    window.addEventListener('resize', measure)
+    mq.addEventListener('change', measure)
+    // высота ленты зависит от картинок — пересчитываем после их загрузки
+    window.addEventListener('load', measure)
+    measure()
+    void frame
+  }
+
+  /* ─── Наклон карточек за курсором (каталог и незакреплённая подборка, только мышь) ─── */
+  if (!reduced && window.matchMedia('(hover: hover)').matches) {
+    $$('.bf-gift').forEach((card) => {
+      card.classList.add('is-tilt')
+      card.addEventListener('pointermove', (e) => {
+        if (card.closest('.bf-selection.is-pinned')) return
+        const r = card.getBoundingClientRect()
+        const x = (e.clientX - r.left) / r.width - 0.5
+        const y = (e.clientY - r.top) / r.height - 0.5
+        card.style.transform = `perspective(900px) rotateY(${(x * 6).toFixed(2)}deg) rotateX(${(-y * 6).toFixed(2)}deg) translateY(-4px)`
+      })
+      card.addEventListener('pointerleave', () => {
+        if (!card.closest('.bf-selection.is-pinned')) card.style.transform = ''
+      })
+    })
+  }
+
   /* ─── Каталог: фильтры и «Показать ещё» ─── */
   const catalog = $('[data-catalog]')
   if (catalog) {

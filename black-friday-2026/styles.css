@@ -289,6 +289,22 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 .bf-selection__track::-webkit-scrollbar { display: none; }
 .bf-selection__card { flex: none; width: min(380px, 82vw); scroll-snap-align: start; }
 
+/* Закреплённая лента (десктоп): секция выше экрана на длину ленты, внутри — sticky‑кадр 100vh;
+   при прокрутке лента едет влево, карточки слегка поворачиваются. Включает script.js,
+   только если лента помещается по высоте экрана. */
+.bf-selection { position: relative; }
+.bf-selection.is-pinned .bf-selection__frame {
+  position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+}
+.bf-selection.is-pinned .bf-selection__track {
+  width: max-content; overflow: visible; scroll-snap-type: none; padding-top: 24px; padding-bottom: 48px; will-change: transform;
+  transform-origin: 0 0;
+}
+.bf-selection.is-pinned .bf-selection__card { transition: none; will-change: transform; }
+
+/* Лёгкий 3D‑наклон карточки за курсором (только мышь) */
+.bf-gift.is-tilt { transition: transform .5s var(--ease), border-color .3s var(--ease), background-color .3s var(--ease), box-shadow .5s var(--ease); }
+
 /* ─── Как это работает ─── */
 .bf-steps__tagline {
   margin: 0 0 120px; max-width: 980px; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif;
