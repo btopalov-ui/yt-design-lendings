@@ -35,8 +35,17 @@
 
   /* ─── Появление блоков при прокрутке ─── */
   const rv = $$('.bf-rv')
+  // После появления снимаем bf-rv и задержку: иначе правило появления перебивает собственные
+  // переходы элемента (расширение карточек типов, фон вопросов FAQ) и они дёргаются
+  const settle = (el) => {
+    const delay = parseInt(el.style.transitionDelay, 10) || 0
+    setTimeout(() => {
+      el.classList.remove('bf-rv', 'is-in')
+      el.style.transitionDelay = ''
+    }, delay + 800)
+  }
   if (reduced || !('IntersectionObserver' in window)) {
-    rv.forEach((el) => el.classList.add('is-in'))
+    rv.forEach((el) => el.classList.remove('bf-rv'))
   } else {
     const io = new IntersectionObserver(
       (entries) =>
@@ -44,6 +53,7 @@
           if (!e.isIntersecting) return
           e.target.classList.add('is-in')
           io.unobserve(e.target)
+          settle(e.target)
         }),
       { rootMargin: '0px 0px -8% 0px' },
     )

@@ -239,7 +239,8 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 .bf-kinds__item:hover img { transform: scale(1.06); }
 .bf-kinds__item::after { content: ''; position: absolute; inset: 30% 0 0; z-index: -1; background: linear-gradient(to top, rgba(var(--night), .92), transparent); }
 .bf-kinds__item small { font-size: 14px; color: rgba(var(--white), .72); }
-.bf-kinds__item h3 { margin: 8px 0; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif; font-size: 32px; line-height: 1.08; font-weight: 700; }
+/* Фиксированная ширина строки заголовка: перенос не меняется, пока карточка расширяется, — текст не прыгает */
+.bf-kinds__item h3 { margin: 8px 0; max-width: 6.2em; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif; font-size: 32px; line-height: 1.08; font-weight: 700; }
 .bf-kinds__item p { margin: 0; max-width: 360px; font-size: 15px; line-height: 22px; color: rgba(var(--white), .8); }
 @media (max-width: 1023px) { .bf-kinds__item h3 { font-size: 24px; } }
 @media (min-width: 1024px) {
