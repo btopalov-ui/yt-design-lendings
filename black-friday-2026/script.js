@@ -223,12 +223,30 @@
         hero.style.setProperty('--py', String(e.clientY / window.innerHeight - 0.5))
       })
     }
-    let sx = null
-    hero.addEventListener('pointerdown', (e) => (sx = e.clientX))
-    hero.addEventListener('pointerup', (e) => {
-      if (sx !== null && Math.abs(e.clientX - sx) > 60 && e.pointerType !== 'mouse') go(current + (e.clientX < sx ? 1 : -1))
-      sx = null
-    })
+    // Свайп на телефоне: touch‑события (pointer‑события на тач‑экранах браузер отменяет при прокрутке).
+    // Листаем только явный горизонтальный жест, вертикальная прокрутка страницы не мешает.
+    let touch = null
+    hero.addEventListener(
+      'touchstart',
+      (e) => {
+        const p = e.touches[0]
+        touch = { x: p.clientX, y: p.clientY, t: Date.now() }
+      },
+      { passive: true },
+    )
+    hero.addEventListener(
+      'touchend',
+      (e) => {
+        if (!touch) return
+        const p = e.changedTouches[0]
+        const dx = p.clientX - touch.x
+        const dy = p.clientY - touch.y
+        const fast = Date.now() - touch.t < 600
+        touch = null
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3 && (fast || Math.abs(dx) > 80)) go(current + (dx < 0 ? 1 : -1))
+      },
+      { passive: true },
+    )
 
     renderStack()
     restart()
