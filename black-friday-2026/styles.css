@@ -428,6 +428,36 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 .bf-final__box p { margin: 0; max-width: 560px; font-size: 18px; line-height: 28px; color: rgba(var(--white), .82); }
 @media (max-width: 1023px) { .bf-final__box h2 { font-size: 32px; } .bf-final__box p { font-size: 15px; line-height: 22px; } }
 
+/* ─── Фирменный знак «плюс» (как в боевой версии: PlusMark.vue + useBFPlusParallax) ─── */
+.bf-plus { display: block; }
+
+/* В плашке «+ Впечатление в подарок» — сплошной зелёный плюс */
+.bf-gift__badge .bf-gift__plus { width: 14px; height: 14px; margin-right: 2px; color: rgb(var(--green)); }
+
+/* Фоновый ритм: крупные контурные плюсы за секциями, сдвигаются и поворачиваются при прокрутке (script.js) */
+.bf-plus-host { position: relative; isolation: isolate; }
+.bf-plus-host > :not(.bf-plus-bg) { position: relative; z-index: 1; }
+.bf-plus-bg { position: absolute; z-index: 0; pointer-events: none; color: rgb(var(--white)); opacity: .08; will-change: transform; }
+
+.bf-kinds__plus { width: min(520px, 44vw); right: -8%; top: 40px; }
+.bf-steps__plus-t { width: min(440px, 38vw); right: 4%; top: 0; opacity: .06; }
+.bf-steps__plus-d { width: min(360px, 30vw); right: 2%; bottom: -60px; opacity: .06; }
+.bf-terms__plus { width: min(600px, 50vw); left: -14%; top: 10%; }
+@media (max-width: 1023px) {
+  .bf-kinds__plus, .bf-steps__plus-d { display: none; }
+  .bf-steps__plus-t { width: 60vw; right: -20%; }
+  .bf-terms__plus { width: 80vw; left: -40%; }
+}
+
+/* Плюс в конце слогана: контурный серый → сплошной зелёный с поворотом, когда загораются акцентные слова */
+.bf-steps__plus {
+  display: inline-block; width: .78em; height: .78em; margin-left: .08em; vertical-align: -.04em;
+  color: rgba(var(--white), .22); transition: color .6s var(--ease), transform .8s var(--ease);
+}
+.bf-steps__plus path { fill: none; stroke: currentColor; }
+.bf-steps__plus.is-on, html:not(.bf-js) .bf-steps__plus { color: rgb(var(--green)); transform: rotate(90deg); }
+.bf-steps__plus.is-on path, html:not(.bf-js) .bf-steps__plus path { fill: currentColor; stroke: none; }
+
 /* ─── Уменьшенное движение ─── */
 @media (prefers-reduced-motion: reduce) {
   .bf-js .bf-rv { opacity: 1; transform: none; transition: none; }
@@ -439,5 +469,6 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
   .bf-js .bf-steps__tagline span { opacity: 1; transition: none; }
   .bf-steps__tagline span.is-accent { color: rgb(var(--green)); }
   .bf-gift.is-enter { opacity: 1; transform: none; }
+  .bf-steps__plus { transition: none; }
   .bf-gift.is-entering, .bf-gift.is-moving { transition: none; }
 }

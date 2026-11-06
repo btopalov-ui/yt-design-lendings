@@ -69,14 +69,25 @@
   /* ─── Финальный блок: фото медленно смещается при прокрутке ─── */
   const finalBox = $('.bf-final__box')
   const finalPhoto = finalBox && $('img', finalBox)
-  if (!reduced && (tagline || finalPhoto)) {
+  /* ─── Знак «плюс»: фоновые плюсы плывут и поворачиваются, плюс слогана загорается вместе с акцентными словами ─── */
+  const plusBg = $$('.bf-plus-bg')
+  const taglinePlus = $('.bf-steps__plus')
+  if (!reduced && (tagline || finalPhoto || plusBg.length)) {
     const words = tagline ? $$('span', tagline) : []
+    const accents = words.filter((w) => w.classList.contains('is-accent'))
     let ticking = false
     const onFrame = () => {
       ticking = false
       const vh = window.innerHeight
       const line = vh * 0.62
       words.forEach((w) => w.classList.toggle('is-lit', w.getBoundingClientRect().top < line))
+      if (taglinePlus) taglinePlus.classList.toggle('is-on', accents.some((w) => w.classList.contains('is-lit')))
+      plusBg.forEach((el, i) => {
+        const r = el.parentElement.getBoundingClientRect()
+        if (r.bottom < -200 || r.top > vh + 200) return
+        const k = (r.top + r.height / 2 - vh / 2) / vh
+        el.style.transform = `translate3d(0, ${(k * -80).toFixed(1)}px, 0) rotate(${(k * (i % 2 ? -18 : 18)).toFixed(2)}deg)`
+      })
       if (finalPhoto) {
         const r = finalBox.getBoundingClientRect()
         if (r.bottom > -200 && r.top < vh + 200) {
@@ -99,6 +110,7 @@
     onFrame()
   } else if (tagline) {
     $$('span', tagline).forEach((w) => w.classList.add('is-lit'))
+    taglinePlus?.classList.add('is-on')
   }
 
   /* ─── Переход к каталогу ─── */
