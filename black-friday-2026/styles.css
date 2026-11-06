@@ -91,9 +91,9 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 /* ─── Шапка и подвал ─── */
 .bf-top { position: absolute; inset: 0 0 auto; z-index: 10; }
 .bf-top__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 20px; padding-bottom: 20px; }
-/* У logo.png белый фон — подаём его осознанной белой плашкой */
-.bf-top__logo { display: inline-flex; padding: 6px 10px; border-radius: 10px; background: rgb(var(--white)); }
-.bf-top__logo img { height: 28px; width: auto; }
+/* Белый логотип на прозрачном фоне — без плашки */
+.bf-top__logo { display: inline-flex; }
+.bf-top__logo img { height: 36px; width: auto; }
 .bf-foot { border-top: 1px solid rgba(var(--white), .1); }
 .bf-foot__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 24px; padding-bottom: 24px; font-size: 13px; color: rgba(var(--white), .6); }
 .bf-foot a { color: rgba(var(--white), .6); }
