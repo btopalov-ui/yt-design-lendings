@@ -262,15 +262,19 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
   box-shadow: inset 0 1px 0 rgba(var(--white), .16), 0 32px 64px -24px rgba(var(--black), .6);
 }
 .bf-gift[hidden] { display: none; }
-.bf-gift__head { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; align-items: center; padding: 8px 8px 12px; }
+/* Плашка «+ Впечатление в подарок» — всегда в одну строку и по ширине содержимого;
+   тип подарка прижат вправо и не рвётся по буквам: если не помещается — целиком уходит на строку ниже.
+   Название и даты всегда на всю ширину. */
+.bf-gift__head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 8px 8px 12px; }
 .bf-gift__badge {
   display: inline-flex; align-items: center; gap: 4px; justify-self: start; padding: 6px 6px 7px; border-radius: 6px;
-  background: rgb(var(--white)); color: rgb(18, 18, 18); font-size: 13px; font-weight: 600; line-height: 17px;
+  background: rgb(var(--white)); color: rgb(18, 18, 18); font-size: 13px; font-weight: 600; line-height: 17px; white-space: nowrap;
 }
-.bf-gift__badge svg { width: 16px; height: 16px; }
-.bf-gift__type { font-size: 13px; line-height: 17px; color: rgba(var(--white), .6); }
-.bf-gift__title { grid-column: 1 / -1; margin: 0; font-size: 20px; line-height: 24px; font-weight: 700; }
-.bf-gift__when { grid-column: 1 / -1; margin: 0; font-size: 13px; line-height: 17px; color: rgba(var(--white), .6); }
+.bf-gift__badge { flex: none; }
+.bf-gift__badge svg { flex: none; width: 16px; height: 16px; }
+.bf-gift__type { margin-left: auto; white-space: nowrap; font-size: 13px; line-height: 17px; color: rgba(var(--white), .6); }
+.bf-gift__title { flex: 1 0 100%; margin: 0; font-size: 20px; line-height: 24px; font-weight: 700; }
+.bf-gift__when { flex: 1 0 100%; margin: 0; font-size: 13px; line-height: 17px; color: rgba(var(--white), .6); }
 
 .bf-tour { flex: 1; display: flex; flex-direction: column; overflow: hidden; border-radius: 12px; background: rgb(var(--white)); color: rgb(18, 18, 18); text-decoration: none; }
 .bf-tour__img { position: relative; display: block; aspect-ratio: 760 / 520; background: rgba(var(--night), .12); overflow: hidden; }
