@@ -440,8 +440,8 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 .bf-plus-bg { position: absolute; z-index: 0; pointer-events: none; color: rgb(var(--white)); opacity: .08; will-change: transform; }
 
 .bf-kinds__plus { width: min(520px, 44vw); right: -8%; top: 40px; }
-.bf-steps__plus-t { width: min(440px, 38vw); right: 4%; top: 0; opacity: .06; }
-.bf-steps__plus-d { width: min(360px, 30vw); right: 2%; bottom: -60px; opacity: .06; }
+.bf-steps__plus-t { width: min(440px, 38vw); right: 4%; top: 0; }
+.bf-steps__plus-d { width: min(360px, 30vw); right: 2%; bottom: -60px; }
 .bf-terms__plus { width: min(600px, 50vw); left: -14%; top: 10%; }
 @media (max-width: 1023px) {
   .bf-kinds__plus, .bf-steps__plus-d { display: none; }
