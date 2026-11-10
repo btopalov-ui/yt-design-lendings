@@ -332,9 +332,10 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
 .bf-steps__tagline span.is-lit { opacity: 1; }
 .bf-steps__tagline span.is-accent.is-lit, html:not(.bf-js) .bf-steps__tagline span.is-accent { color: rgb(var(--green)); }
 .bf-steps__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
-.bf-steps__list .bf-card { min-height: 260px; }
-@media (max-width: 1023px) { .bf-steps__list { grid-template-columns: 1fr; } .bf-steps__list .bf-card { min-height: 0; } }
-.bf-steps__num { margin-bottom: auto; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif; font-size: 96px; line-height: 1; font-weight: 700; color: transparent; -webkit-text-stroke: 1px rgba(var(--white), .35); }
+/* цифра и текст в одну строку: цифра слева на высоту заголовка с описанием — карточка компактнее */
+.bf-steps__list .bf-card { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto 1fr; align-items: start; column-gap: 24px; row-gap: 8px; }
+@media (max-width: 1023px) { .bf-steps__list { grid-template-columns: 1fr; } .bf-steps__list .bf-card { column-gap: 16px; } }
+.bf-steps__num { grid-row: span 2; min-width: .62em; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif; font-size: 80px; line-height: .8; font-weight: 700; color: transparent; -webkit-text-stroke: 1px rgba(var(--white), .35); }
 @media (max-width: 1023px) { .bf-steps__num { font-size: 56px; } }
 .bf-steps__why { margin-top: var(--gap); }
 .bf-steps__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
