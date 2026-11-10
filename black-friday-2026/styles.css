@@ -458,8 +458,8 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
 
 /* ─── Подарки от партнёров (как PartnerGifts.vue) ─── */
 .bf-partners { scroll-margin-top: 80px; }
-.bf-partners__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 1239px) { .bf-partners__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* на десктопе — две колонки: карточки шире, подарок и промокод читаются в одну-две строки */
+.bf-partners__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 620px) { .bf-partners__grid { grid-template-columns: minmax(0, 1fr); } }
 /* строки карточек выровнены между собой: логотип, категория, описание, подарок и кнопка — на одной линии */
 .bf-partners__card { min-width: 0; gap: 16px; }
