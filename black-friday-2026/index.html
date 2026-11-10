@@ -324,6 +324,93 @@
   </div>
 </section>
 
+<!-- Подарки от партнёров (как PartnerGifts.vue): общий промокод копируется по клику -->
+<section id="bf-partners" class="bf-wrap bf-partners">
+  <div class="bf-head bf-rv">
+    <span class="bf-head__kicker">Подарки от партнёров</span>
+    <h2 class="bf-head__title">Ещё больше подарков к поездке</h2>
+    <p class="bf-head__text">Партнёры YouTravel.me дарят бонусы всем, кто бронирует тур в Чёрную пятницу.</p>
+  </div>
+  <div class="bf-partners__grid">
+    <article class="bf-card bf-partners__card bf-rv" data-partner>
+      <div class="bf-partners__logo"><img src="./assets/partners/trippy.svg" alt="Trippy" style="height:42px" loading="lazy" decoding="async"></div>
+      <div class="bf-partners__gift">
+        <span class="bf-partners__gift-k"><svg class="bf-plus bf-partners__plus" viewBox="-3 -3 106 106" aria-hidden="true" focusable="false"><path d="M39 11A11 11 0 0 1 61 11V33A6 6 0 0 0 67 39H89A11 11 0 0 1 89 61H67A6 6 0 0 0 61 67V89A11 11 0 0 1 39 89V67A6 6 0 0 0 33 61H11A11 11 0 0 1 11 39H33A6 6 0 0 0 39 33Z" fill="currentColor"/></svg>Подарок</span>
+        <b>−20% на оформление визы в Испанию, Францию или Италию</b>
+      </div>
+      <button type="button" class="bf-partners__toggle" aria-expanded="false" aria-controls="bf-partner-more-0" data-partner-toggle>
+        <span>Подробнее</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+      </button>
+      <div id="bf-partner-more-0" class="bf-partners__more" role="region" aria-label="Подробнее: Trippy">
+        <div class="bf-partners__more-in">
+          <span class="bf-partners__cat">Визы</span>
+          <p class="bf-partners__desc">Запись в визовый центр ботом и полный пакет документов для шенгенской визы.</p>
+          <button type="button" class="bf-partners__code" data-copy="YOUTRAVEL20" aria-label="Скопировать промокод YOUTRAVEL20"><span>YOUTRAVEL20</span><i>Скопировать</i></button>
+          <small class="bf-partners__note">Консульский и сервисный сборы оплачиваются отдельно</small>
+          <a class="bf-btn bf-btn_glass bf-btn_arrow bf-partners__btn" href="https://thetrippy.travel" target="_blank" rel="noopener sponsored">На сайт партнёра <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </article>
+    <article class="bf-card bf-partners__card bf-rv" data-partner>
+      <div class="bf-partners__logo"><img src="./assets/partners/kaspersky-esim.webp" alt="Kaspersky eSIM Store" style="height:60px" loading="lazy" decoding="async"></div>
+      <div class="bf-partners__gift">
+        <span class="bf-partners__gift-k"><svg class="bf-plus bf-partners__plus" viewBox="-3 -3 106 106" aria-hidden="true" focusable="false"><path d="M39 11A11 11 0 0 1 61 11V33A6 6 0 0 0 67 39H89A11 11 0 0 1 89 61H67A6 6 0 0 0 61 67V89A11 11 0 0 1 39 89V67A6 6 0 0 0 33 61H11A11 11 0 0 1 11 39H33A6 6 0 0 0 39 33Z" fill="currentColor"/></svg>Подарок</span>
+        <b>Ваучер 5 € на eSIM</b>
+      </div>
+      <button type="button" class="bf-partners__toggle" aria-expanded="false" aria-controls="bf-partner-more-1" data-partner-toggle>
+        <span>Подробнее</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+      </button>
+      <div id="bf-partner-more-1" class="bf-partners__more" role="region" aria-label="Подробнее: Kaspersky eSIM Store">
+        <div class="bf-partners__more-in">
+          <span class="bf-partners__cat">Связь</span>
+          <p class="bf-partners__desc">eSIM с мобильным интернетом в поездке: больше 150 стран без роуминга.</p>
+          <span class="bf-partners__code bf-partners__code_muted">Код придёт после бронирования</span>
+          <small class="bf-partners__note">Для новых пользователей</small>
+          <a class="bf-btn bf-btn_glass bf-btn_arrow bf-partners__btn" href="https://kasperskyesimstore.com" target="_blank" rel="noopener sponsored">На сайт партнёра <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </article>
+    <article class="bf-card bf-partners__card bf-rv" data-partner>
+      <div class="bf-partners__logo"><img src="./assets/partners/cherehapa.svg" alt="Черехапа" style="height:42px" loading="lazy" decoding="async"></div>
+      <div class="bf-partners__gift">
+        <span class="bf-partners__gift-k"><svg class="bf-plus bf-partners__plus" viewBox="-3 -3 106 106" aria-hidden="true" focusable="false"><path d="M39 11A11 11 0 0 1 61 11V33A6 6 0 0 0 67 39H89A11 11 0 0 1 89 61H67A6 6 0 0 0 61 67V89A11 11 0 0 1 39 89V67A6 6 0 0 0 33 61H11A11 11 0 0 1 11 39H33A6 6 0 0 0 39 33Z" fill="currentColor"/></svg>Подарок</span>
+        <b>−10% на туристическую страховку</b>
+      </div>
+      <button type="button" class="bf-partners__toggle" aria-expanded="false" aria-controls="bf-partner-more-2" data-partner-toggle>
+        <span>Подробнее</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+      </button>
+      <div id="bf-partner-more-2" class="bf-partners__more" role="region" aria-label="Подробнее: Черехапа">
+        <div class="bf-partners__more-in">
+          <span class="bf-partners__cat">Страховка</span>
+          <p class="bf-partners__desc">Сравнение и покупка туристических страховок от крупных страховых компаний.</p>
+          <span class="bf-partners__code bf-partners__code_muted">Промокод уточняется</span>
+          
+          <a class="bf-btn bf-btn_glass bf-btn_arrow bf-partners__btn" href="https://cherehapa.ru" target="_blank" rel="noopener sponsored">На сайт партнёра <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </article>
+    <article class="bf-card bf-partners__card bf-rv" data-partner>
+      <div class="bf-partners__logo"><img src="./assets/partners/nevylet.svg" alt="Невылет.рф" style="height:42px" loading="lazy" decoding="async"></div>
+      <div class="bf-partners__gift">
+        <span class="bf-partners__gift-k"><svg class="bf-plus bf-partners__plus" viewBox="-3 -3 106 106" aria-hidden="true" focusable="false"><path d="M39 11A11 11 0 0 1 61 11V33A6 6 0 0 0 67 39H89A11 11 0 0 1 89 61H67A6 6 0 0 0 61 67V89A11 11 0 0 1 39 89V67A6 6 0 0 0 33 61H11A11 11 0 0 1 11 39H33A6 6 0 0 0 39 33Z" fill="currentColor"/></svg>Подарок</span>
+        <b>−50% на полис</b>
+      </div>
+      <button type="button" class="bf-partners__toggle" aria-expanded="false" aria-controls="bf-partner-more-3" data-partner-toggle>
+        <span>Подробнее</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+      </button>
+      <div id="bf-partner-more-3" class="bf-partners__more" role="region" aria-label="Подробнее: Невылет.рф">
+        <div class="bf-partners__more-in">
+          <span class="bf-partners__cat">Страховка от невыезда</span>
+          <p class="bf-partners__desc">Страховка от невыезда и в поездке: вы сами выбираете, что включить в полис.</p>
+          <span class="bf-partners__code bf-partners__code_muted">Промокод уточняется</span>
+          <small class="bf-partners__note">Действует 23–30 ноября</small>
+          <a class="bf-btn bf-btn_glass bf-btn_arrow bf-partners__btn" href="https://xn--b1afbxh8ayd.xn--p1ai" target="_blank" rel="noopener sponsored">На сайт партнёра <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
 <!-- Каталог -->
 <section id="bf-catalog" class="bf-wrap bf-catalog" data-catalog>
   <div class="bf-head bf-rv">
@@ -1260,93 +1347,6 @@
   <div class="bf-catalog__empty" role="status" data-empty hidden>
     <p>По этим фильтрам подарков пока нет. Список пополняется во время акции.</p>
     <button type="button" class="bf-fbtn" data-reset>Сбросить фильтры</button>
-  </div>
-</section>
-
-<!-- Подарки от партнёров (как PartnerGifts.vue): общий промокод копируется по клику -->
-<section id="bf-partners" class="bf-wrap bf-partners">
-  <div class="bf-head bf-rv">
-    <span class="bf-head__kicker">Подарки от партнёров</span>
-    <h2 class="bf-head__title">Ещё больше подарков к поездке</h2>
-    <p class="bf-head__text">Партнёры YouTravel.me дарят бонусы всем, кто бронирует тур в Чёрную пятницу.</p>
-  </div>
-  <div class="bf-partners__grid">
-    <article class="bf-card bf-partners__card bf-rv" data-partner>
-      <div class="bf-partners__logo"><img src="./assets/partners/trippy.svg" alt="Trippy" style="height:42px" loading="lazy" decoding="async"></div>
-      <div class="bf-partners__gift">
-        <span class="bf-partners__gift-k"><svg class="bf-plus bf-partners__plus" viewBox="-3 -3 106 106" aria-hidden="true" focusable="false"><path d="M39 11A11 11 0 0 1 61 11V33A6 6 0 0 0 67 39H89A11 11 0 0 1 89 61H67A6 6 0 0 0 61 67V89A11 11 0 0 1 39 89V67A6 6 0 0 0 33 61H11A11 11 0 0 1 11 39H33A6 6 0 0 0 39 33Z" fill="currentColor"/></svg>Подарок</span>
-        <b>−20% на оформление визы в Испанию, Францию или Италию</b>
-      </div>
-      <button type="button" class="bf-partners__toggle" aria-expanded="false" aria-controls="bf-partner-more-0" data-partner-toggle>
-        <span>Подробнее</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
-      </button>
-      <div id="bf-partner-more-0" class="bf-partners__more" role="region" aria-label="Подробнее: Trippy">
-        <div class="bf-partners__more-in">
-          <span class="bf-partners__cat">Визы</span>
-          <p class="bf-partners__desc">Запись в визовый центр ботом и полный пакет документов для шенгенской визы.</p>
-          <button type="button" class="bf-partners__code" data-copy="YOUTRAVEL20" aria-label="Скопировать промокод YOUTRAVEL20"><span>YOUTRAVEL20</span><i>Скопировать</i></button>
-          <small class="bf-partners__note">Консульский и сервисный сборы оплачиваются отдельно</small>
-          <a class="bf-btn bf-btn_glass bf-btn_arrow bf-partners__btn" href="https://thetrippy.travel" target="_blank" rel="noopener sponsored">На сайт партнёра <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-    </article>
-    <article class="bf-card bf-partners__card bf-rv" data-partner>
-      <div class="bf-partners__logo"><img src="./assets/partners/kaspersky-esim.webp" alt="Kaspersky eSIM Store" style="height:60px" loading="lazy" decoding="async"></div>
-      <div class="bf-partners__gift">
-        <span class="bf-partners__gift-k"><svg class="bf-plus bf-partners__plus" viewBox="-3 -3 106 106" aria-hidden="true" focusable="false"><path d="M39 11A11 11 0 0 1 61 11V33A6 6 0 0 0 67 39H89A11 11 0 0 1 89 61H67A6 6 0 0 0 61 67V89A11 11 0 0 1 39 89V67A6 6 0 0 0 33 61H11A11 11 0 0 1 11 39H33A6 6 0 0 0 39 33Z" fill="currentColor"/></svg>Подарок</span>
-        <b>Ваучер 5 € на eSIM</b>
-      </div>
-      <button type="button" class="bf-partners__toggle" aria-expanded="false" aria-controls="bf-partner-more-1" data-partner-toggle>
-        <span>Подробнее</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
-      </button>
-      <div id="bf-partner-more-1" class="bf-partners__more" role="region" aria-label="Подробнее: Kaspersky eSIM Store">
-        <div class="bf-partners__more-in">
-          <span class="bf-partners__cat">Связь</span>
-          <p class="bf-partners__desc">eSIM с мобильным интернетом в поездке: больше 150 стран без роуминга.</p>
-          <span class="bf-partners__code bf-partners__code_muted">Код придёт после бронирования</span>
-          <small class="bf-partners__note">Для новых пользователей</small>
-          <a class="bf-btn bf-btn_glass bf-btn_arrow bf-partners__btn" href="https://kasperskyesimstore.com" target="_blank" rel="noopener sponsored">На сайт партнёра <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-    </article>
-    <article class="bf-card bf-partners__card bf-rv" data-partner>
-      <div class="bf-partners__logo"><img src="./assets/partners/cherehapa.svg" alt="Черехапа" style="height:42px" loading="lazy" decoding="async"></div>
-      <div class="bf-partners__gift">
-        <span class="bf-partners__gift-k"><svg class="bf-plus bf-partners__plus" viewBox="-3 -3 106 106" aria-hidden="true" focusable="false"><path d="M39 11A11 11 0 0 1 61 11V33A6 6 0 0 0 67 39H89A11 11 0 0 1 89 61H67A6 6 0 0 0 61 67V89A11 11 0 0 1 39 89V67A6 6 0 0 0 33 61H11A11 11 0 0 1 11 39H33A6 6 0 0 0 39 33Z" fill="currentColor"/></svg>Подарок</span>
-        <b>−10% на туристическую страховку</b>
-      </div>
-      <button type="button" class="bf-partners__toggle" aria-expanded="false" aria-controls="bf-partner-more-2" data-partner-toggle>
-        <span>Подробнее</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
-      </button>
-      <div id="bf-partner-more-2" class="bf-partners__more" role="region" aria-label="Подробнее: Черехапа">
-        <div class="bf-partners__more-in">
-          <span class="bf-partners__cat">Страховка</span>
-          <p class="bf-partners__desc">Сравнение и покупка туристических страховок от крупных страховых компаний.</p>
-          <span class="bf-partners__code bf-partners__code_muted">Промокод уточняется</span>
-          
-          <a class="bf-btn bf-btn_glass bf-btn_arrow bf-partners__btn" href="https://cherehapa.ru" target="_blank" rel="noopener sponsored">На сайт партнёра <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-    </article>
-    <article class="bf-card bf-partners__card bf-rv" data-partner>
-      <div class="bf-partners__logo"><img src="./assets/partners/nevylet.svg" alt="Невылет.рф" style="height:42px" loading="lazy" decoding="async"></div>
-      <div class="bf-partners__gift">
-        <span class="bf-partners__gift-k"><svg class="bf-plus bf-partners__plus" viewBox="-3 -3 106 106" aria-hidden="true" focusable="false"><path d="M39 11A11 11 0 0 1 61 11V33A6 6 0 0 0 67 39H89A11 11 0 0 1 89 61H67A6 6 0 0 0 61 67V89A11 11 0 0 1 39 89V67A6 6 0 0 0 33 61H11A11 11 0 0 1 11 39H33A6 6 0 0 0 39 33Z" fill="currentColor"/></svg>Подарок</span>
-        <b>−50% на полис</b>
-      </div>
-      <button type="button" class="bf-partners__toggle" aria-expanded="false" aria-controls="bf-partner-more-3" data-partner-toggle>
-        <span>Подробнее</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
-      </button>
-      <div id="bf-partner-more-3" class="bf-partners__more" role="region" aria-label="Подробнее: Невылет.рф">
-        <div class="bf-partners__more-in">
-          <span class="bf-partners__cat">Страховка от невыезда</span>
-          <p class="bf-partners__desc">Страховка от невыезда и в поездке: вы сами выбираете, что включить в полис.</p>
-          <span class="bf-partners__code bf-partners__code_muted">Промокод уточняется</span>
-          <small class="bf-partners__note">Действует 23–30 ноября</small>
-          <a class="bf-btn bf-btn_glass bf-btn_arrow bf-partners__btn" href="https://xn--b1afbxh8ayd.xn--p1ai" target="_blank" rel="noopener sponsored">На сайт партнёра <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-    </article>
   </div>
 </section>
 
