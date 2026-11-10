@@ -292,7 +292,10 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
 /* ─── Подборка: горизонтальная лента ─── */
 .bf-selection__track {
   display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
-  padding: 0 max(var(--pad), calc((100vw - 1256px) / 2 + var(--pad))) 8px;
+  /* лента с горизонтальной прокруткой обрезает и по вертикали: запас сверху/снизу под подъём и тень карточки
+     при наведении, отрицательные поля возвращают блок на прежнее место */
+  padding: 24px max(var(--pad), calc((100vw - 1256px) / 2 + var(--pad))) 48px;
+  margin: -24px 0 -40px;
 }
 .bf-selection__track::-webkit-scrollbar { display: none; }
 .bf-selection__card { flex: none; width: min(380px, 82vw); scroll-snap-align: start; }
@@ -305,7 +308,7 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
   position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden;
 }
 .bf-selection.is-pinned .bf-selection__track {
-  width: max-content; overflow: visible; scroll-snap-type: none; padding-top: 24px; padding-bottom: 48px; will-change: transform;
+  width: max-content; overflow: visible; scroll-snap-type: none; padding-top: 24px; padding-bottom: 48px; margin: 0; will-change: transform;
   transform-origin: 0 0;
 }
 .bf-selection.is-pinned .bf-selection__card { transition: none; will-change: transform; }
