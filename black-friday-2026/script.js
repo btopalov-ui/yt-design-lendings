@@ -125,6 +125,16 @@
     }),
   )
 
+  /* ─── Подарки от партнёров: подробности раскрываются по стрелке, каждая карточка отдельно ─── */
+  $$('[data-partner-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('[data-partner]')
+      const open = card.classList.toggle('is-open')
+      btn.setAttribute('aria-expanded', String(open))
+      $('span', btn).textContent = open ? 'Свернуть' : 'Подробнее'
+    })
+  })
+
   /* ─── Подарки от партнёров: промокод копируется по клику, подпись на 1.8 с меняется на «Скопировано» ─── */
   $$('[data-copy]').forEach((btn) => {
     let timer = null

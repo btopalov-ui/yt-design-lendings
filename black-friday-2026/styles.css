@@ -480,35 +480,58 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
 
 /* ─── Подарки от партнёров (как PartnerGifts.vue) ─── */
 .bf-partners { scroll-margin-top: 80px; }
-/* на десктопе — две колонки: карточки шире, подарок и промокод читаются в одну-две строки */
-.bf-partners__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+/* Десктоп (от 1200px) — четыре компактные карточки в одну строку, уже — по две, телефон — по одной
+   (ниже 1200px в четыре колонки карточки слишком узкие: подарок Trippy занимает пять строк).
+   Видно только логотип и подарок; категория, описание, промокод и ссылка — в раскрывающемся блоке по стрелке.
+   align-items: start — раскрытая карточка растёт одна, соседние не растягиваются. */
+.bf-partners__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: 16px; }
+@media (max-width: 1199px) { .bf-partners__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .bf-partners__grid { grid-template-columns: minmax(0, 1fr); } }
-/* строки карточек выровнены между собой: логотип, категория, описание, подарок и кнопка — на одной линии */
-.bf-partners__card { min-width: 0; gap: 16px; }
+.bf-partners__grid > .bf-partners__card { min-width: 0; gap: 12px; padding: 20px; }
 .bf-partners__card > * { min-width: 0; }
-/* строки карточки повторяются: логотип / категория / описание / подарок / кнопка; строка подарка — 1fr,
-   поэтому блоки подарка и сами карточки одной высоты во всём блоке на любой ширине */
-@supports (grid-template-rows: subgrid) {
-  .bf-partners__grid { grid-auto-rows: auto auto auto 1fr auto; }
-  .bf-partners__grid > .bf-partners__card { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: subgrid; grid-row: span 5; row-gap: 16px; }
+.bf-partners__logo { height: 48px; display: flex; align-items: center; }
+.bf-partners__logo img { display: block; width: auto; max-width: 100%; max-height: 48px; object-fit: contain; object-position: left center; }
+.bf-partners__gift {
+  display: grid; align-content: start; gap: 6px; padding: 14px 16px 16px; border-radius: 12px;
+  background: rgba(var(--green), .14); border: 1px solid rgba(var(--green), .35);
 }
-.bf-partners__logo { height: 60px; display: flex; align-items: center; }
-.bf-partners__logo img { display: block; width: auto; max-width: 100%; max-height: 60px; object-fit: contain; object-position: left center; }
+.bf-partners__gift b { font-size: 16px; line-height: 20px; letter-spacing: -.2px; }
+/* свёрнутые карточки одной высоты: подарок занимает не больше трёх строк в любой раскладке */
+.bf-partners__gift b { min-height: 60px; }
+.bf-partners__gift-k { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; line-height: 16px; color: rgba(var(--white), .48); }
+.bf-partners__plus { width: 14px; height: 14px; color: rgb(var(--green)); }
+/* стрелка «Подробнее»: нажимается вся строка, кружок со стрелкой поворачивается при раскрытии */
+.bf-partners__toggle {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; padding: 4px 0 0;
+  border: 0; background: none; color: rgba(var(--white), .72); font: inherit; font-size: 14px; line-height: 20px; font-weight: 600;
+  text-align: left; cursor: pointer; transition: color .3s var(--ease);
+}
+.bf-partners__toggle i {
+  flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(var(--white), .26); background: rgba(var(--white), .08);
+  transition: transform .5s var(--ease), background-color .3s var(--ease);
+}
+.bf-partners__toggle svg { width: 18px; height: 18px; }
+.bf-partners__toggle:hover { color: rgb(var(--white)); }
+.bf-partners__toggle:hover i { background: rgba(var(--white), .18); }
+.bf-partners__toggle:focus-visible { outline: 2px solid rgb(var(--green)); outline-offset: 4px; border-radius: 8px; }
+.bf-partners__card.is-open .bf-partners__toggle i { transform: rotate(180deg); }
+/* раскрывающийся блок: высота анимируется через grid-template-rows 0fr → 1fr; закрытый — недоступен с клавиатуры */
+.bf-partners__more {
+  display: grid; grid-template-rows: 0fr; visibility: hidden; margin-top: -12px;
+  transition: grid-template-rows .5s var(--ease), margin-top .5s var(--ease), visibility 0s .5s;
+}
+.bf-partners__card.is-open .bf-partners__more {
+  grid-template-rows: 1fr; visibility: visible; margin-top: 0;
+  transition: grid-template-rows .5s var(--ease), margin-top .5s var(--ease), visibility 0s;
+}
+.bf-partners__more-in { display: grid; align-content: start; gap: 12px; min-height: 0; overflow: hidden; }
 .bf-partners__cat {
-  justify-self: start; align-self: start; padding: 4px 8px; border-radius: 6px; background: rgba(var(--white), .1);
+  justify-self: start; padding: 4px 8px; border-radius: 6px; background: rgba(var(--white), .1);
   font-size: 12px; line-height: 16px; font-weight: 600; color: rgba(var(--white), .72);
 }
 .bf-card .bf-partners__desc { margin: 0; font-size: 14px; line-height: 20px; color: rgba(var(--white), .72); }
-/* на планшете и телефоне описания переносятся на 2–3 строки — резервируем три, чтобы карточки были одной высоты */
-@media (max-width: 1023px) { .bf-card .bf-partners__desc { min-height: 60px; } }
-.bf-partners__gift {
-  display: grid; align-content: start; gap: 8px; padding: 16px; border-radius: 12px;
-  background: rgba(var(--green), .14); border: 1px solid rgba(var(--green), .35);
-}
-.bf-partners__gift b { font-size: 20px; line-height: 24px; letter-spacing: -.3px; }
-.bf-partners__gift small { font-size: 12px; line-height: 16px; color: rgba(var(--white), .48); }
-.bf-partners__gift-k { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; line-height: 16px; color: rgba(var(--white), .48); }
-.bf-partners__plus { width: 14px; height: 14px; color: rgb(var(--green)); }
+.bf-partners__note { margin-top: -4px; font-size: 12px; line-height: 16px; color: rgba(var(--white), .48); }
 .bf-partners__code {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 8px; min-height: 36px; padding: 6px 10px;
   border-radius: 8px; border: 1px dashed rgba(var(--white), .4); background: none; color: rgb(var(--white));
@@ -523,7 +546,8 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
 .bf-partners__code.is-copied { border-style: solid; border-color: rgb(var(--green)); }
 .bf-partners__code_muted { cursor: default; font-family: inherit; font-size: 13px; line-height: 18px; letter-spacing: 0; color: rgba(var(--white), .72); }
 .bf-partners__code_muted:hover { background: none; border-color: rgba(var(--white), .4); }
-.bf-partners__btn { width: 100%; min-width: 0; white-space: normal; }
+.bf-partners__btn { width: 100%; min-width: 0; min-height: 48px; padding: 0 16px; font-size: 15px; white-space: normal; }
+@media (prefers-reduced-motion: reduce) { .bf-partners__more, .bf-partners__toggle i { transition: none; } }
 
 /* ─── Лёгкий режим (класс ставится в <head>: мало памяти, экономия трафика, 2G/3G) ───
    Размытие под карточками — самый дорогой эффект для слабой видеокарты: на тёмном фоне его почти не видно,
