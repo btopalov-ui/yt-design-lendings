@@ -11,17 +11,19 @@
   <meta property="og:image" content="https://youtravel.me/landing/black-friday-2026/assets/promo/whaleshark-h-xl.webp">
   <link rel="icon" href="./assets/favicon.png">
   <script>
-    // Лёгкий режим для слабых устройств и медленной сети: без размытия стекла, параллакса и тяжёлых эффектов.
-    // Включается до первой отрисовки, чтобы браузер сразу рисовал упрощённую версию.
+    // Лёгкий режим только для действительно слабых условий: экономия трафика, 2G, ≤ 2 ГБ памяти.
+    // Выключает движение (параллакс, наклон, приближение фото), стекло карточек не трогает.
+    // «3g» и ≤ 4 ГБ не учитываем: браузер округляет память вниз (6 ГБ → 4) и при первом заходе
+    // часто считает сеть «3g» — из-за этого у многих пропадало стекло на первой загрузке.
     (function () {
       var n = navigator, c = n.connection || {}
-      if (c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (n.deviceMemory && n.deviceMemory <= 4))
+      if (c.saveData || /(^|-)2g$/.test(c.effectiveType || '') || (n.deviceMemory && n.deviceMemory <= 2))
         document.documentElement.classList.add('bf-lite')
     })()
   </script>
   <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/sf-pro-display-700.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/sf-pro-text-400.woff2" crossorigin>
-  <link rel="stylesheet" href="./styles.css?v=dbe0cf0a67">
+  <link rel="stylesheet" href="./styles.css?v=1a8c58e536">
   <script defer src="./script.js?v=3549386680"></script>
 </head>
 <body class="bf-page">
