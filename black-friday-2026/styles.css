@@ -46,7 +46,9 @@ button { font: inherit; color: inherit; }
 
 .bf-wrap { width: 100%; max-width: 1256px; margin: 0 auto; padding: 0 var(--pad); }
 
-main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: calc(var(--gap) * .6); }
+/* overflow-x: clip — как .page-bf в боевой: фоновые плюсы выходят за край экрана и не должны давать горизонтальную прокрутку.
+   На body это свойство передаётся окну браузера и работает как hidden: страницу всё равно можно было сдвинуть вбок. */
+main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: calc(var(--gap) * .6); overflow-x: clip; }
 
 /* ─── Кнопки ─── */
 .bf-btn {
@@ -471,8 +473,11 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
 /* строки карточек выровнены между собой: логотип, категория, описание, подарок и кнопка — на одной линии */
 .bf-partners__card { min-width: 0; gap: 16px; }
 .bf-partners__card > * { min-width: 0; }
+/* строки карточки повторяются: логотип / категория / описание / подарок / кнопка; строка подарка — 1fr,
+   поэтому блоки подарка и сами карточки одной высоты во всём блоке на любой ширине */
 @supports (grid-template-rows: subgrid) {
-  .bf-partners__card { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: subgrid; grid-row: span 5; row-gap: 16px; }
+  .bf-partners__grid { grid-auto-rows: auto auto auto 1fr auto; }
+  .bf-partners__grid > .bf-partners__card { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: subgrid; grid-row: span 5; row-gap: 16px; }
 }
 .bf-partners__logo { height: 60px; display: flex; align-items: center; }
 .bf-partners__logo img { display: block; width: auto; max-width: 100%; max-height: 60px; object-fit: contain; object-position: left center; }
@@ -481,6 +486,8 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
   font-size: 12px; line-height: 16px; font-weight: 600; color: rgba(var(--white), .72);
 }
 .bf-card .bf-partners__desc { margin: 0; font-size: 14px; line-height: 20px; color: rgba(var(--white), .72); }
+/* на планшете и телефоне описания переносятся на 2–3 строки — резервируем три, чтобы карточки были одной высоты */
+@media (max-width: 1023px) { .bf-card .bf-partners__desc { min-height: 60px; } }
 .bf-partners__gift {
   display: grid; align-content: start; gap: 8px; padding: 16px; border-radius: 12px;
   background: rgba(var(--green), .14); border: 1px solid rgba(var(--green), .35);
