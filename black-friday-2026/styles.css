@@ -294,8 +294,9 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
   display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
   /* лента с горизонтальной прокруткой обрезает и по вертикали: запас сверху/снизу под подъём и тень карточки
      при наведении, отрицательные поля возвращают блок на прежнее место */
-  padding: 24px max(var(--pad), calc((100vw - 1256px) / 2 + var(--pad))) 48px;
-  margin: -24px 0 -40px;
+  /* тень при наведении (0 32px 64px -24px) уходит на 72px вниз — снизу запас 88px */
+  padding: 24px max(var(--pad), calc((100vw - 1256px) / 2 + var(--pad))) 88px;
+  margin: -24px 0 -80px;
 }
 .bf-selection__track::-webkit-scrollbar { display: none; }
 .bf-selection__card { flex: none; width: min(380px, 82vw); scroll-snap-align: start; }
