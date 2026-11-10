@@ -4,6 +4,9 @@
   const doc = document.documentElement
   doc.classList.add('bf-js')
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  // лёгкий режим для слабых устройств и медленной сети (класс ставит скрипт в <head>):
+  // без параллакса и наклона карточек — меньше работы на каждый кадр прокрутки
+  const lite = doc.classList.contains('bf-lite')
   const $ = (s, r = document) => r.querySelector(s)
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s))
 
@@ -68,9 +71,9 @@
   const tagline = $('[data-tagline]')
   /* ─── Финальный блок: фото медленно смещается при прокрутке ─── */
   const finalBox = $('.bf-final__box')
-  const finalPhoto = finalBox && $('img', finalBox)
+  const finalPhoto = !lite && finalBox && $('img', finalBox)
   /* ─── Знак «плюс»: фоновые плюсы плывут и поворачиваются, плюс слогана загорается вместе с акцентными словами ─── */
-  const plusBg = $$('.bf-plus-bg')
+  const plusBg = lite ? [] : $$('.bf-plus-bg')
   const taglinePlus = $('.bf-steps__plus')
   if (!reduced && (tagline || finalPhoto || plusBg.length)) {
     const words = tagline ? $$('span', tagline) : []
@@ -164,7 +167,8 @@
         b.type = 'button'
         b.className = 'bf-mini'
         b.setAttribute('aria-label', `Показать: ${s.title}`)
-        b.innerHTML = `<img src="./assets/promo/${s.img}.webp" alt=""><small></small><b></b>`
+        // маленькая копия фото (~30 КБ); на телефоне стопка скрыта, и lazy не даёт ей грузиться вовсе
+        b.innerHTML = `<img src="./assets/promo/${s.img}-s.webp" alt="" loading="lazy" decoding="async" width="360" height="240"><small></small><b></b>`
         b.querySelector('small').textContent = s.place
         b.querySelector('b').textContent = s.title
         b.addEventListener('click', () => go(k))
@@ -180,8 +184,25 @@
       $('[data-f="href"]', info).href = s.href
     }
 
+    // Фото слайдов подгружаются по требованию: при первом открытии качается только первый.
+    // В лёгком режиме — без версии 2400w, достаточно 1200w.
+    const load = (k) => {
+      const img = $('img[data-src]', layers[(k + layers.length) % layers.length])
+      if (!img) return
+      if (!lite && img.dataset.srcset) img.srcset = img.dataset.srcset
+      img.src = img.dataset.src
+      img.removeAttribute('data-src')
+      img.removeAttribute('data-srcset')
+    }
+    // следующий слайд — заранее, но только после загрузки страницы и в простое браузера
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 1200))
+    const warmNext = () => idle(() => load(current + 1))
+    if (document.readyState === 'complete') warmNext()
+    else window.addEventListener('load', warmNext, { once: true })
+
     const go = (i) => {
       const next = (i + slides.length) % slides.length
+      load(next)
       if (next !== current) {
         layers[current].classList.remove('is-on')
         gifts[current].classList.remove('is-on')
@@ -209,6 +230,7 @@
       })
       void segs[current].offsetWidth
       segs[current].classList.add('is-on')
+      warmNext()
       restart()
     }
 
@@ -229,7 +251,7 @@
     document.addEventListener('visibilitychange', () => pause('hidden', document.hidden))
 
     // параллакс за курсором и свайп на телефоне
-    if (!reduced) {
+    if (!reduced && !lite) {
       hero.addEventListener('pointermove', (e) => {
         hero.style.setProperty('--px', String(e.clientX / window.innerWidth - 0.5))
         hero.style.setProperty('--py', String(e.clientY / window.innerHeight - 0.5))
@@ -334,7 +356,7 @@
   }
 
   /* ─── Наклон карточек за курсором (каталог и незакреплённая подборка, только мышь) ─── */
-  if (!reduced && window.matchMedia('(hover: hover)').matches) {
+  if (!reduced && !lite && window.matchMedia('(hover: hover)').matches) {
     $$('.bf-gift').forEach((card) => {
       card.classList.add('is-tilt')
       card.addEventListener('pointermove', (e) => {

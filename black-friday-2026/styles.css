@@ -458,6 +458,20 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 .bf-steps__plus.is-on, html:not(.bf-js) .bf-steps__plus { color: rgb(var(--green)); transform: rotate(90deg); }
 .bf-steps__plus.is-on path, html:not(.bf-js) .bf-steps__plus path { fill: currentColor; stroke: none; }
 
+/* ─── Скорость: каталог (18+ карточек со стеклом) не рисуется, пока до него не дошли ─── */
+.bf-catalog { content-visibility: auto; contain-intrinsic-size: auto 2400px; }
+
+/* ─── Лёгкий режим (класс ставится в <head>: мало памяти, экономия трафика, 2G/3G) ───
+   Размытие под карточками — самый дорогой эффект для слабой видеокарты: на тёмном фоне его почти не видно,
+   поэтому карточки получают чуть более плотную заливку вместо blur. На фото главного экрана стекло остаётся —
+   там оно читается и элементов мало. Медленное приближение фото главного экрана выключено. */
+html.bf-lite .bf-card,
+html.bf-lite .bf-gift { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(var(--white), .1); }
+html.bf-lite .bf-gift:hover { background: rgba(var(--white), .12); }
+html.bf-lite .bf-hero__layer.is-on img { animation: none; }
+html.bf-lite .bf-plus-bg,
+html.bf-lite .bf-final__box img { will-change: auto; }
+
 /* ─── Уменьшенное движение ─── */
 @media (prefers-reduced-motion: reduce) {
   .bf-js .bf-rv { opacity: 1; transform: none; transition: none; }

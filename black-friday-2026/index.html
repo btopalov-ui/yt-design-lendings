@@ -10,9 +10,19 @@
   <meta property="og:description" content="При бронировании авторских туров до 30 ноября — впечатление в подарок. Цена тура не меняется.">
   <meta property="og:image" content="https://youtravel.me/landing/black-friday-2026/assets/promo/whaleshark-h-xl.webp">
   <link rel="icon" href="./assets/favicon.png">
-  <link rel="preload" as="image" href="./assets/promo/whaleshark-h.webp" imagesrcset="./assets/promo/whaleshark-h.webp 1200w, ./assets/promo/whaleshark-h-xl.webp 2400w" imagesizes="100vw">
-  <link rel="stylesheet" href="./styles.css?v=f91cfa8875">
-  <script defer src="./script.js?v=3d10843ca9"></script>
+  <script>
+    // Лёгкий режим для слабых устройств и медленной сети: без размытия стекла, параллакса и тяжёлых эффектов.
+    // Включается до первой отрисовки, чтобы браузер сразу рисовал упрощённую версию.
+    (function () {
+      var n = navigator, c = n.connection || {}
+      if (c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (n.deviceMemory && n.deviceMemory <= 4))
+        document.documentElement.classList.add('bf-lite')
+    })()
+  </script>
+  <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/sf-pro-display-700.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/sf-pro-text-400.woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css?v=729a6c9e97">
+  <script defer src="./script.js?v=429006e481"></script>
 </head>
 <body class="bf-page">
 
@@ -28,14 +38,14 @@
 <!-- Главный экран -->
 <section class="bf-hero" aria-roledescription="карусель" aria-label="Подарки акции" data-hero>
   <div class="bf-hero__scene" aria-hidden="true">
-    <div class="bf-hero__layer is-on"><img src="./assets/promo/whaleshark-h.webp" srcset="./assets/promo/whaleshark-h.webp 1200w, ./assets/promo/whaleshark-h-xl.webp 2400w" sizes="100vw" alt="" fetchpriority="high"></div>
-    <div class="bf-hero__layer"><img src="./assets/promo/paraglider-h.webp" srcset="./assets/promo/paraglider-h.webp 1200w, ./assets/promo/paraglider-h-xl.webp 2400w" sizes="100vw" alt="" loading="lazy"></div>
-    <div class="bf-hero__layer"><img src="./assets/promo/geisha-h.webp" srcset="./assets/promo/geisha-h.webp 1200w, ./assets/promo/geisha-h-xl.webp 2400w" sizes="100vw" alt="" loading="lazy"></div>
-    <div class="bf-hero__layer"><img src="./assets/promo/husky-h.webp" srcset="./assets/promo/husky-h.webp 1200w, ./assets/promo/husky-h-xl.webp 2400w" sizes="100vw" alt="" loading="lazy"></div>
-    <div class="bf-hero__layer"><img src="./assets/promo/avatar-h.webp" srcset="./assets/promo/avatar-h.webp 1200w, ./assets/promo/avatar-h-xl.webp 2400w" sizes="100vw" alt="" loading="lazy"></div>
-    <div class="bf-hero__layer"><img src="./assets/promo/ingush-h.webp" srcset="./assets/promo/ingush-h.webp 1200w, ./assets/promo/ingush-h-xl.webp 2400w" sizes="100vw" alt="" loading="lazy"></div>
-    <div class="bf-hero__layer"><img src="./assets/promo/tango-h.webp" srcset="./assets/promo/tango-h.webp 1200w, ./assets/promo/tango-h-xl.webp 2400w" sizes="100vw" alt="" loading="lazy"></div>
-    <div class="bf-hero__layer"><img src="./assets/promo/lava-h.webp" srcset="./assets/promo/lava-h.webp 1200w, ./assets/promo/lava-h-xl.webp 2400w" sizes="100vw" alt="" loading="lazy"></div>
+    <div class="bf-hero__layer is-on"><img src="./assets/promo/whaleshark-h.webp" srcset="./assets/promo/whaleshark-h.webp 1200w, ./assets/promo/whaleshark-h-xl.webp 2400w" sizes="100vw" alt="" fetchpriority="high" decoding="async"></div>
+    <div class="bf-hero__layer"><img data-src="./assets/promo/paraglider-h.webp" data-srcset="./assets/promo/paraglider-h.webp 1200w, ./assets/promo/paraglider-h-xl.webp 2400w" sizes="100vw" alt="" decoding="async"></div>
+    <div class="bf-hero__layer"><img data-src="./assets/promo/geisha-h.webp" data-srcset="./assets/promo/geisha-h.webp 1200w, ./assets/promo/geisha-h-xl.webp 2400w" sizes="100vw" alt="" decoding="async"></div>
+    <div class="bf-hero__layer"><img data-src="./assets/promo/husky-h.webp" data-srcset="./assets/promo/husky-h.webp 1200w, ./assets/promo/husky-h-xl.webp 2400w" sizes="100vw" alt="" decoding="async"></div>
+    <div class="bf-hero__layer"><img data-src="./assets/promo/avatar-h.webp" data-srcset="./assets/promo/avatar-h.webp 1200w, ./assets/promo/avatar-h-xl.webp 2400w" sizes="100vw" alt="" decoding="async"></div>
+    <div class="bf-hero__layer"><img data-src="./assets/promo/ingush-h.webp" data-srcset="./assets/promo/ingush-h.webp 1200w, ./assets/promo/ingush-h-xl.webp 2400w" sizes="100vw" alt="" decoding="async"></div>
+    <div class="bf-hero__layer"><img data-src="./assets/promo/tango-h.webp" data-srcset="./assets/promo/tango-h.webp 1200w, ./assets/promo/tango-h-xl.webp 2400w" sizes="100vw" alt="" decoding="async"></div>
+    <div class="bf-hero__layer"><img data-src="./assets/promo/lava-h.webp" data-srcset="./assets/promo/lava-h.webp 1200w, ./assets/promo/lava-h-xl.webp 2400w" sizes="100vw" alt="" decoding="async"></div>
   </div>
   <div class="bf-wrap bf-hero__ui">
     <div class="bf-hero__top">
@@ -99,19 +109,19 @@
   </div>
   <div class="bf-kinds__list">
     <button type="button" class="bf-kinds__item bf-rv" data-kind="person">
-      <img src="./assets/promo/ingush-dance.webp" alt="" loading="lazy">
+      <img src="./assets/promo/ingush-dance.webp" alt="" loading="lazy" decoding="async">
       <small>Тип подарка</small>
       <h3>Встреча с человеком</h3>
       <p>Мастера, танцоры, фотографы и местные жители, к которым не попасть без организатора.</p>
     </button>
     <button type="button" class="bf-kinds__item bf-rv" data-kind="place">
-      <img src="./assets/promo/avatar-1.webp" alt="" loading="lazy">
+      <img src="./assets/promo/avatar-1.webp" alt="" loading="lazy" decoding="async">
       <small>Тип подарка</small>
       <h3>Особое место</h3>
       <p>Горы Аватара после заката, лавовые тоннели, бани и фермы: туда, куда обычно не заходят туристы.</p>
     </button>
     <button type="button" class="bf-kinds__item bf-rv" data-kind="activity">
-      <img src="./assets/promo/dunes-1.webp" alt="" loading="lazy">
+      <img src="./assets/promo/dunes-1.webp" alt="" loading="lazy" decoding="async">
       <small>Тип подарка</small>
       <h3>Активность</h3>
       <p>Полёты, сёрфинг, упряжки и спуски с дюн. Впечатление, которое остаётся в теле.</p>
@@ -132,7 +142,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="place" data-region="Океания">
   <a class="bf-tour" href="https://youtravel.me/tours/64459/%D0%BC%D0%B0%D0%B3%D0%B8%D1%8F_%D0%B0%D0%B2%D1%81%D1%82%D1%80%D0%B0%D0%BB%D0%B8%D0%B8_%D0%BE%D1%82_%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B3%D0%BE_%D0%B1%D0%B0%D1%80%D1%8C%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D0%B8%D1%84%D0%B0_%D0%B4%D0%BE_%D1%81%D0%B8%D0%B4%D0%BD%D0%B5%D1%8F" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/64459.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/64459.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Австралия</small>
       <b>Магия Австралии: от Большого Барьерного рифа до Сиднея</b>
@@ -149,7 +159,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="activity" data-region="Африка">
   <a class="bf-tour" href="https://youtravel.me/tours/60130/%D0%BA%D0%BE%D1%81%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D0%BD%D0%B0%D0%BC%D0%B8%D0%B1%D0%B8%D1%8F_%D1%81%D0%B0%D1%84%D0%B0%D1%80%D0%B8_%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B5_%D0%B4%D1%8E%D0%BD%D1%8B_%D0%B8_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/60130.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/60130.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Намибия</small>
       <b>Космическая Намибия: сафари, красные дюны и океан</b>
@@ -166,7 +176,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="activity" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/64031/%D0%BC%D0%B0%D0%B3%D0%B8%D1%8F_%D1%88%D1%80%D0%B8-%D0%BB%D0%B0%D0%BD%D0%BA%D0%B8_%D1%81%D0%B0%D1%84%D0%B0%D1%80%D0%B8_%D0%BF%D0%BE%D0%B5%D0%B7%D0%B4_%D1%81%D0%BA%D0%B2%D0%BE%D0%B7%D1%8C_%D0%B4%D0%B6%D1%83%D0%BD%D0%B3%D0%BB%D0%B8_%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D0%B5_%D1%85%D0%BE%D0%BB%D0%BC%D1%8B_%D0%B8_%D1%80%D0%B5%D0%BB%D0%B0%D0%BA%D1%81_%D1%83_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/64031.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/64031.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Шри-Ланка</small>
       <b>Магия Шри-Ланки: сафари, поезд сквозь джунгли, чайные холмы и релакс у океана</b>
@@ -183,7 +193,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="place" data-region="Европа">
   <a class="bf-tour" href="https://youtravel.me/tours/60258/%D0%B8%D1%81%D0%BB%D0%B0%D0%BD%D0%B4%D0%B8%D1%8F_%D0%BF%D1%83%D1%82%D0%B5%D1%88%D0%B5%D1%81%D1%82%D0%B2%D0%B8%D0%B5_%D0%BD%D0%B0_%D0%B4%D1%80%D1%83%D0%B3%D1%83%D1%8E_%D0%BF%D0%BB%D0%B0%D0%BD%D0%B5%D1%82%D1%83_9_%D0%B4%D0%BD%D0%B5%D0%B9_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/60258.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/60258.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Исландия</small>
       <b>Исландия: Путешествие на другую планету (9 дней)</b>
@@ -200,7 +210,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="place" data-region="Америка">
   <a class="bf-tour" href="https://youtravel.me/tours/65119/%D0%BD%D0%B0_%D0%BA%D1%80%D0%B0%D0%B9_%D1%81%D0%B2%D0%B5%D1%82%D0%B0_%D0%B1%D1%83%D1%8D%D0%BD%D0%BE%D1%81-%D0%B0%D0%B9%D1%80%D0%B5%D1%81_%D0%B2%D0%BE%D0%B4%D0%BE%D0%BF%D0%B0%D0%B4%D1%8B_%D0%B8%D0%B3%D1%83%D0%B0%D1%81%D1%83_%D0%BF%D0%B0%D1%82%D0%B0%D0%B3%D0%BE%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%BE%D0%B3%D0%BD%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B7%D0%B5%D0%BC%D0%BB%D1%8F" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/65119.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/65119.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Аргентина</small>
       <b>На край света: Буэнос-Айрес, водопады Игуасу, Патагония и Огненная Земля</b>
@@ -217,7 +227,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="person" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/28257/5_%D1%81%D1%87%D0%B0%D1%81%D1%82%D0%BB%D0%B8%D0%B2%D1%8B%D1%85_%D0%B4%D0%BD%D0%B5%D0%B9_%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5_%D1%81_%D0%BD%D0%B0%D0%BC%D0%B8_%D0%B8%D0%BD%D0%B3%D1%83%D1%88%D0%B5%D1%82%D0%B8%D1%8F-%D0%BE%D1%81%D0%B5%D1%82%D0%B8%D1%8F-%D0%BA%D0%B1%D1%80_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/28257.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/28257.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>5 счастливых дней вместе с нами! (Ингушетия-Осетия-КБР)</b>
@@ -234,7 +244,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="place" data-region="Океания">
   <a class="bf-tour" href="https://youtravel.me/tours/68374/%D0%B2%D1%81%D1%8F_%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B7%D0%B5%D0%BB%D0%B0%D0%BD%D0%B4%D0%B8%D1%8F_%D0%B7%D0%B0_14_%D0%B4%D0%BD%D0%B5%D0%B9_%D1%85%D0%BE%D0%B1%D0%B1%D0%B8%D1%82%D0%BE%D0%BD_%D0%BA%D0%B8%D1%82%D1%8B_%D0%BB%D0%B5%D0%B4%D0%BD%D0%B8%D0%BA%D0%B8_%D0%B8_%D1%84%D1%8C%D0%BE%D1%80%D0%B4%D1%8B" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/68374.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/68374.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Новая Зеландия</small>
       <b>Вся Новая Зеландия за 14 дней: Хоббитон, киты, ледники и фьорды</b>
@@ -251,7 +261,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="person" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/44478/%D0%BE%D1%87%D0%B0%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D1%8F_%D0%B2%D1%81%D1%91_%D0%B8_%D1%81%D1%80%D0%B0%D0%B7%D1%83_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/44478.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/44478.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Грузия</small>
       <b>Очаровательная Грузия. Всё и сразу!</b>
@@ -268,7 +278,7 @@
 
 <article class="bf-gift bf-selection__card" data-type="person" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/67151/%D1%81%D0%B5%D0%B2%D0%B5%D1%80_%D0%B1%D0%B0%D0%B9%D0%BA%D0%B0%D0%BB%D0%B0_%D0%BB%D1%91%D0%B4_%D0%B3%D0%BE%D1%80%D1%8F%D1%87%D0%B8%D0%B5_%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B8_%D0%B8_%D0%B1%D0%B5%D1%81%D0%BA%D1%80%D0%B0%D0%B9%D0%BD%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%80%D1%8B" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/67151.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/67151.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Север Байкала: лёд, горячие источники и бескрайние просторы</b>
@@ -342,7 +352,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Америка">
   <a class="bf-tour" href="https://youtravel.me/tours/56867/%D0%B4%D1%80%D1%83%D0%B3%D0%B0%D1%8F_%D0%BF%D0%BB%D0%B0%D0%BD%D0%B5%D1%82%D0%B0_%D0%BF%D0%B5%D1%80%D1%83_%D0%B1%D0%BE%D0%BB%D0%B8%D0%B2%D0%B8%D1%8F_%D0%B8_%D1%87%D0%B8%D0%BB%D0%B8_%D0%B2_%D1%82%D0%BE%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC_%D0%BA%D0%BE%D0%BC%D1%84%D0%BE%D1%80%D1%82%D0%B5" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/56867.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/56867.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Боливия, Перу, Чили</small>
       <b>Другая планета: Перу, Боливия и Чили в тотальном комфорте</b>
@@ -359,7 +369,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/46766/%D1%83%D0%BB%D0%B5%D1%82%D0%BD%D1%8B%D0%B5_%D0%BC%D0%B0%D0%BB%D1%8C%D0%B4%D0%B8%D0%B2%D1%8B_%D0%BF%D0%BE_4_%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D0%B0%D0%BC_%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%BE_%D0%B2%D1%81%D0%B5_%D0%B8_%D0%B4%D0%B0%D0%B6%D0%B5_%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B5_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/46766.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/46766.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Мальдивы</small>
       <b>Улетные Мальдивы по 4 островам. Включено Все и даже больше!</b>
@@ -376,7 +386,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/53924/%D1%86%D0%B2%D0%B5%D1%82%D1%83%D1%89%D0%B0%D1%8F_%D1%8F%D0%BF%D0%BE%D0%BD%D0%B8%D1%8F_%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D0%B5_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B8_%D1%85%D0%B8%D1%80%D0%BE%D1%81%D0%B8%D0%BC%D0%B0" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/53924.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/53924.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Япония</small>
       <b>Цветущая Япония: Главные локации и Хиросима</b>
@@ -393,7 +403,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/28257/5_%D1%81%D1%87%D0%B0%D1%81%D1%82%D0%BB%D0%B8%D0%B2%D1%8B%D1%85_%D0%B4%D0%BD%D0%B5%D0%B9_%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5_%D1%81_%D0%BD%D0%B0%D0%BC%D0%B8_%D0%B8%D0%BD%D0%B3%D1%83%D1%88%D0%B5%D1%82%D0%B8%D1%8F-%D0%BE%D1%81%D0%B5%D1%82%D0%B8%D1%8F-%D0%BA%D0%B1%D1%80_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/28257.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/28257.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>5 счастливых дней вместе с нами! (Ингушетия-Осетия-КБР)</b>
@@ -410,7 +420,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Америка">
   <a class="bf-tour" href="https://youtravel.me/tours/65119/%D0%BD%D0%B0_%D0%BA%D1%80%D0%B0%D0%B9_%D1%81%D0%B2%D0%B5%D1%82%D0%B0_%D0%B1%D1%83%D1%8D%D0%BD%D0%BE%D1%81-%D0%B0%D0%B9%D1%80%D0%B5%D1%81_%D0%B2%D0%BE%D0%B4%D0%BE%D0%BF%D0%B0%D0%B4%D1%8B_%D0%B8%D0%B3%D1%83%D0%B0%D1%81%D1%83_%D0%BF%D0%B0%D1%82%D0%B0%D0%B3%D0%BE%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%BE%D0%B3%D0%BD%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B7%D0%B5%D0%BC%D0%BB%D1%8F" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/65119.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/65119.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Аргентина</small>
       <b>На край света: Буэнос-Айрес, водопады Игуасу, Патагония и Огненная Земля</b>
@@ -427,7 +437,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/66923/%D0%BA%D0%B8%D1%82%D0%B0%D0%B9_%D0%B7%D0%B0_10_%D0%B4%D0%BD%D0%B5%D0%B9_%D0%BF%D0%B5%D0%BA%D0%B8%D0%BD_%D1%81%D0%B8%D0%B0%D0%BD%D1%8C_%D0%B3%D0%BE%D1%80%D1%8B_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80%D0%B0_%D0%B8_%D1%88%D0%B0%D0%BD%D1%85%D0%B0%D0%B9" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/66923.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/66923.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Китай</small>
       <b>Китай за 10 дней: Пекин, Сиань, горы Аватара и Шанхай</b>
@@ -444,7 +454,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Европа">
   <a class="bf-tour" href="https://youtravel.me/tours/60258/%D0%B8%D1%81%D0%BB%D0%B0%D0%BD%D0%B4%D0%B8%D1%8F_%D0%BF%D1%83%D1%82%D0%B5%D1%88%D0%B5%D1%81%D1%82%D0%B2%D0%B8%D0%B5_%D0%BD%D0%B0_%D0%B4%D1%80%D1%83%D0%B3%D1%83%D1%8E_%D0%BF%D0%BB%D0%B0%D0%BD%D0%B5%D1%82%D1%83_9_%D0%B4%D0%BD%D0%B5%D0%B9_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/60258.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/60258.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Исландия</small>
       <b>Исландия: Путешествие на другую планету (9 дней)</b>
@@ -461,7 +471,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/41627/%D0%B2%D0%B5%D1%81%D1%8C_%D0%BA%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%BE%D0%BC%D1%84%D0%BE%D1%80%D1%82_%D1%82%D1%83%D1%80_%D0%B4%D0%BE_6_%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA_%D1%81%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D0%BE%D0%B5_%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5_%D0%B0%D0%B9%D1%81%D1%84%D0%BB%D0%BE%D0%B0%D1%82%D0%B8%D0%BD%D0%B3_%D1%82%D0%B5%D1%80%D0%B8%D0%B1%D0%B5%D1%80%D0%BA%D0%B0" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/41627.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/41627.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Весь Кольский Комфорт тур до 6 человек. Северное сияние, Айсфлоатинг, Териберка</b>
@@ -478,7 +488,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Африка">
   <a class="bf-tour" href="https://youtravel.me/tours/60130/%D0%BA%D0%BE%D1%81%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D0%BD%D0%B0%D0%BC%D0%B8%D0%B1%D0%B8%D1%8F_%D1%81%D0%B0%D1%84%D0%B0%D1%80%D0%B8_%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B5_%D0%B4%D1%8E%D0%BD%D1%8B_%D0%B8_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/60130.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/60130.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Намибия</small>
       <b>Космическая Намибия: сафари, красные дюны и океан</b>
@@ -495,7 +505,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/64031/%D0%BC%D0%B0%D0%B3%D0%B8%D1%8F_%D1%88%D1%80%D0%B8-%D0%BB%D0%B0%D0%BD%D0%BA%D0%B8_%D1%81%D0%B0%D1%84%D0%B0%D1%80%D0%B8_%D0%BF%D0%BE%D0%B5%D0%B7%D0%B4_%D1%81%D0%BA%D0%B2%D0%BE%D0%B7%D1%8C_%D0%B4%D0%B6%D1%83%D0%BD%D0%B3%D0%BB%D0%B8_%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D0%B5_%D1%85%D0%BE%D0%BB%D0%BC%D1%8B_%D0%B8_%D1%80%D0%B5%D0%BB%D0%B0%D0%BA%D1%81_%D1%83_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/64031.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/64031.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Шри-Ланка</small>
       <b>Магия Шри-Ланки: сафари, поезд сквозь джунгли, чайные холмы и релакс у океана</b>
@@ -512,7 +522,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Океания">
   <a class="bf-tour" href="https://youtravel.me/tours/64459/%D0%BC%D0%B0%D0%B3%D0%B8%D1%8F_%D0%B0%D0%B2%D1%81%D1%82%D1%80%D0%B0%D0%BB%D0%B8%D0%B8_%D0%BE%D1%82_%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B3%D0%BE_%D0%B1%D0%B0%D1%80%D1%8C%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D0%B8%D1%84%D0%B0_%D0%B4%D0%BE_%D1%81%D0%B8%D0%B4%D0%BD%D0%B5%D1%8F" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/64459.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/64459.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Австралия</small>
       <b>Магия Австралии: от Большого Барьерного рифа до Сиднея</b>
@@ -529,7 +539,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Океания">
   <a class="bf-tour" href="https://youtravel.me/tours/68374/%D0%B2%D1%81%D1%8F_%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B7%D0%B5%D0%BB%D0%B0%D0%BD%D0%B4%D0%B8%D1%8F_%D0%B7%D0%B0_14_%D0%B4%D0%BD%D0%B5%D0%B9_%D1%85%D0%BE%D0%B1%D0%B1%D0%B8%D1%82%D0%BE%D0%BD_%D0%BA%D0%B8%D1%82%D1%8B_%D0%BB%D0%B5%D0%B4%D0%BD%D0%B8%D0%BA%D0%B8_%D0%B8_%D1%84%D1%8C%D0%BE%D1%80%D0%B4%D1%8B" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/68374.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/68374.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Новая Зеландия</small>
       <b>Вся Новая Зеландия за 14 дней: Хоббитон, киты, ледники и фьорды</b>
@@ -546,7 +556,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/44478/%D0%BE%D1%87%D0%B0%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D1%8F_%D0%B2%D1%81%D1%91_%D0%B8_%D1%81%D1%80%D0%B0%D0%B7%D1%83_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/44478.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/44478.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Грузия</small>
       <b>Очаровательная Грузия. Всё и сразу!</b>
@@ -563,7 +573,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/67151/%D1%81%D0%B5%D0%B2%D0%B5%D1%80_%D0%B1%D0%B0%D0%B9%D0%BA%D0%B0%D0%BB%D0%B0_%D0%BB%D1%91%D0%B4_%D0%B3%D0%BE%D1%80%D1%8F%D1%87%D0%B8%D0%B5_%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B8_%D0%B8_%D0%B1%D0%B5%D1%81%D0%BA%D1%80%D0%B0%D0%B9%D0%BD%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%80%D1%8B" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/67151.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/67151.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Север Байкала: лёд, горячие источники и бескрайние просторы</b>
@@ -580,7 +590,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/67964/%D0%B2%D1%8C%D0%B5%D1%82%D0%BD%D0%B0%D0%BC_%D1%84%D1%83%D0%BA%D1%83%D0%BE%D0%BA_%D0%BD%D1%8F%D1%87%D0%B0%D0%BD%D0%B3_%D1%85%D0%BE%D1%88%D0%B8%D0%BC%D0%B8%D0%BD_%D0%B4%D0%B0%D0%BD%D0%B0%D0%BD%D0%B3_%D0%BC%D0%BE%D1%80%D1%81%D0%BA%D0%B8%D0%B5_%D0%BF%D1%80%D0%B5%D0%BC%D0%B8%D1%83%D0%BC-%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%BB%D0%BA%D0%B8_12_%D0%B4%D0%BD%D0%B5%D0%B9_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/67964.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/67964.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Вьетнам</small>
       <b>Вьетнам: Фукуок, Нячанг, Хошимин, Дананг. Морские премиум-прогулки! 12 дней.</b>
@@ -597,7 +607,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/21356/%D0%B7%D0%B8%D0%BC%D0%BD%D1%8F%D1%8F_%D0%BA%D0%B0%D1%80%D0%B5%D0%BB%D0%B8%D1%8F_%D0%B4%D0%BE_6_%D1%87%D0%B5%D0%BB_%D0%B4%D0%B5%D0%B4_%D0%BC%D0%BE%D1%80%D0%BE%D0%B7_%D1%80%D0%B5%D1%82%D1%80%D0%BE%D0%BF%D0%BE%D0%B5%D0%B7%D0%B4_%D1%80%D1%83%D1%81%D0%BA%D0%B5%D0%B0%D0%BB%D0%B0_%D1%85%D0%B8%D0%B2%D1%83%D1%81_%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8_%D1%85%D0%B0%D1%81%D0%BA%D0%B8" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/21356.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/21356.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Зимняя Карелия до 6 чел. Дед Мороз, Ретропоезд, Рускеала, хивус, олени, хаски</b>
@@ -614,7 +624,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Африка">
   <a class="bf-tour" href="https://youtravel.me/tours/39074/%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D1%83%D1%82%D0%B5%D1%88%D0%B5%D1%81%D1%82%D0%B2%D0%B8%D0%B5_%D0%BD%D0%B0_%D0%BC%D0%B0%D0%B2%D1%80%D0%B8%D0%BA%D0%B8%D0%B9" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/39074.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/39074.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Маврикий</small>
       <b>Уникальное путешествие на Маврикий</b>
@@ -631,7 +641,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/12255/%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%B3_%D0%B2_%D1%88%D0%B5%D1%80%D0%B5%D0%B3%D0%B5%D1%88%D0%B5_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BB%D1%8B%D0%B6%D0%B0%D0%BC_%D0%B8_%D0%B1%D0%BE%D1%80%D0%B4%D1%83" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/12255.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/12255.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Восторг в Шерегеше! +Обучение лыжам и борду</b>
@@ -648,7 +658,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/29697/%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7%D1%81%D0%BA%D0%B0%D1%8F_%D0%BC%D0%BE%D0%B7%D0%B0%D0%B8%D0%BA%D0%B0_%D0%B8%D0%BD%D0%B3%D1%83%D1%88%D0%B5%D1%82%D0%B8%D1%8F-%D0%BE%D1%81%D0%B5%D1%82%D0%B8%D1%8F-%D0%BA%D0%B1%D1%80-%D1%87%D0%B5%D1%87%D0%BD%D1%8F-%D0%B4%D0%B0%D0%B3%D0%B5%D1%81%D1%82%D0%B0%D0%BD_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/29697.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/29697.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Кавказская мозаика! (Ингушетия-Осетия-КБР-Чечня-Дагестан)</b>
@@ -665,7 +675,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Африка">
   <a class="bf-tour" href="https://youtravel.me/tours/67082/%D0%BA%D0%B5%D0%B9%D0%BF%D1%82%D0%B0%D1%83%D0%BD_%D0%BC%D1%8B%D1%81_%D0%B4%D0%BE%D0%B1%D1%80%D0%BE%D0%B9_%D0%BD%D0%B0%D0%B4%D0%B5%D0%B6%D0%B4%D1%8B_%D0%B8_%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%B0_%D1%81%D0%B0%D0%B4%D0%BE%D0%B2_9_%D0%B4%D0%BD%D0%B5%D0%B9_%D0%B2_%D1%8E%D0%B0%D1%80" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/67082.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/67082.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>ЮАР</small>
       <b>Кейптаун, Мыс Доброй Надежды и Дорога Садов: 9 дней в ЮАР</b>
@@ -682,7 +692,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/61253/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_%D0%B2_%D1%8F%D0%BF%D0%BE%D0%BD%D0%B8%D0%B8_%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B5_%D0%BA%D0%BB%D0%B5%D0%BD%D1%8B_%D1%82%D0%BE%D0%BF-%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B8_%D0%BD%D0%B5%D0%BE%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9_%D1%82%D0%BE%D0%BA%D0%B8%D0%BE" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/61253.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/61253.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Япония</small>
       <b>Осень в Японии : красные клены , топ-локации и неоновый Токио</b>
@@ -699,7 +709,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Америка">
   <a class="bf-tour" href="https://youtravel.me/tours/54169/%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D0%BB%D0%B8%D1%8F_%D0%B8%D0%B3%D1%83%D0%B0%D1%81%D1%83_%D0%B8_%D0%BF%D0%B0%D1%82%D0%B0%D0%B3%D0%BE%D0%BD%D0%B8%D1%8F_%D0%BE%D1%82_%D1%80%D0%B8%D0%BE_%D0%B4%D0%BE_%D0%BB%D0%B5%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2_%D0%B7%D0%B0_13_%D0%B4%D0%BD%D0%B5%D0%B9" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/54169.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/54169.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Аргентина, Бразилия</small>
       <b>Бразилия, Игуасу и Патагония: от Рио до ледников за 13 дней</b>
@@ -716,7 +726,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Африка">
   <a class="bf-tour" href="https://youtravel.me/tours/38803/%D0%B0%D0%B2%D1%82%D0%BE%D0%BF%D1%83%D1%82%D0%B5%D1%88%D0%B5%D1%81%D1%82%D0%B2%D0%B8%D0%B5_%D1%8E%D0%B0%D1%80_-_%D0%BD%D0%B0%D0%BC%D0%B8%D0%B1%D0%B8%D1%8F_-_%D0%B1%D0%BE%D1%82%D1%81%D0%B2%D0%B0%D0%BD%D0%B0_-_%D0%B7%D0%B8%D0%BC%D0%B1%D0%B0%D0%B1%D0%B2%D0%B5" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/38803.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/38803.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Ботсвана, Зимбабве, Намибия, ЮАР</small>
       <b>Автопутешествие Юар - Намибия - Ботсвана - Зимбабве</b>
@@ -733,7 +743,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Африка">
   <a class="bf-tour" href="https://youtravel.me/tours/73173/%D0%B0%D0%BD%D0%B3%D0%BE%D0%BB%D0%B0_%D0%B8_%D0%BD%D0%B0%D0%BC%D0%B8%D0%B1%D0%B8%D1%8F_%D0%B0%D1%84%D1%80%D0%B8%D0%BA%D0%B0_%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%83%D1%8E_%D0%BF%D0%BE%D1%87%D1%82%D0%B8_%D0%BD%D0%B8%D0%BA%D1%82%D0%BE_%D0%BD%D0%B5_%D0%B2%D0%B8%D0%B4%D0%B5%D0%BB_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/73173.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/73173.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Ангола, Намибия</small>
       <b>Ангола и Намибия. Африка, которую почти никто не видел.</b>
@@ -750,7 +760,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/66739/%D0%BC%D0%B0%D0%BB%D1%8C%D0%B4%D0%B8%D0%B2%D1%8B_%D0%B4%D0%BB%D1%8F_%D0%B8%D1%81%D0%BA%D1%83%D1%88%D0%B5%D0%BD%D0%BD%D1%8B%D1%85_%D0%B3%D0%B8%D0%B4%D1%80%D0%BE%D1%81%D0%B0%D0%BC%D0%BE%D0%BB%D0%B5%D1%82_%D1%80%D0%B5%D0%B7%D0%BE%D1%80%D1%82_%D0%BA%D0%B8%D1%82%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B0%D0%BA%D1%83%D0%BB%D0%B0_%D0%B8_%D0%B3%D0%B8%D0%B4%D1%80%D0%BE%D0%BA%D0%B0%D1%80_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/66739.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/66739.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Мальдивы</small>
       <b>МАЛЬДИВЫ для ИСКУШЕННЫХ! Гидросамолет, Резорт, Китовая акула и Гидрокар!</b>
@@ -767,7 +777,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/54153/%D1%86%D0%B2%D0%B5%D1%82%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%B0%D0%BA%D1%83%D1%80%D1%8B_%D0%B2_%D0%BA%D0%BE%D1%80%D0%B5%D0%B5_%D1%81%D0%B5%D1%83%D0%BB_%D0%BF%D1%83%D1%81%D0%B0%D0%BD" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/54153.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/54153.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Южная Корея</small>
       <b>Цветение сакуры в Корее. Сеул+Пусан</b>
@@ -784,7 +794,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/77228/%D0%BA%D0%B8%D1%82%D0%B0%D0%B9%D1%81%D0%BA%D0%B0%D1%8F_%D0%BA%D1%80%D1%83%D0%B3%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BA%D0%B0_7_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%B2_%D0%B7%D0%B0_12_%D0%B4%D0%BD%D0%B5%D0%B9" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/77228.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/77228.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Китай</small>
       <b>Китайская кругосветка: 7 городов за 12 дней</b>
@@ -801,7 +811,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/73600/%D1%82%D0%B2%D0%BE%D0%B8_%D0%BC%D0%B0%D0%BB%D1%8C%D0%B4%D0%B8%D0%B2%D1%8B_%D0%B2%D1%81%D1%91_%D1%81%D1%80%D0%B0%D0%B7%D1%83_%D1%80%D0%B5%D0%B7%D0%BE%D1%80%D1%82_%D0%B0%D0%BA%D1%83%D0%BB%D1%8B_%D0%B4%D1%80%D0%BE%D0%BD%D1%8B_%D0%B4%D1%80%D0%B0%D0%B9%D0%B2_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/73600.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/73600.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Мальдивы</small>
       <b>Твои Мальдивы. Всё сразу: резорт, акулы, дроны, драйв!</b>
@@ -818,7 +828,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/65892/%D1%86%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%BE_%D0%BB%D1%8C%D0%B4%D0%B0_5_%D0%B4%D0%BD%D0%B5%D0%B9_%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%8B%D0%B5_%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82_%D0%B2%D0%B0%D1%88%D0%B8_%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BE_%D0%B7%D0%B8%D0%BC%D0%B5_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/65892.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/65892.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Царство льда: 5 дней, которые перевернут ваши представления о зиме.</b>
@@ -835,7 +845,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/74782/%D0%B2%D0%B5%D1%81%D1%8C_%D0%BA%D0%B8%D1%82%D0%B0%D0%B9_%D0%BA%D0%BE%D0%BC%D1%84%D0%BE%D1%80%D1%82_%D1%82%D1%83%D1%80_%D0%B4%D0%BE_7_%D1%87%D0%B5%D0%BB_%D0%BF%D0%B5%D0%BA%D0%B8%D0%BD_%D0%B3%D0%BE%D1%80%D1%8B_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80%D0%B0_%D0%B2%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%D1%8F_%D1%81%D1%82%D0%B5%D0%BD%D0%B0_%D1%88%D0%B0%D0%BD%D1%85%D0%B0%D0%B9_%D1%81%D0%B8%D0%B0%D0%BD%D1%8C" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/74782.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/74782.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Китай</small>
       <b>Весь Китай Комфорт тур до 7 чел. Пекин, горы Аватара, Великая стена, Шанхай, Сиань</b>
@@ -852,7 +862,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/39372/%D1%82%D0%B0%D0%B8%D0%BB%D0%B0%D0%BD%D0%B4_%D0%BA%D0%B0%D0%BC%D0%B1%D0%BE%D0%B4%D0%B6%D0%B0" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/39372.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/39372.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Камбоджа, Таиланд</small>
       <b>Таиланд &amp; Камбоджа</b>
@@ -869,7 +879,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/59316/%D1%82%D1%83%D1%80%D1%8B_%D0%BD%D0%B0_%D0%BC%D0%B0%D0%BB%D1%8C%D0%B4%D0%B8%D0%B2%D1%8B_%D0%B2%D1%81%D0%B5_%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%BE_%D0%B2_%D0%BD%D0%BE%D0%B2%D0%BE%D0%BC_%D0%BE%D1%82%D0%B5%D0%BB%D0%B5" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/59316.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/59316.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Мальдивы</small>
       <b>Туры На Мальдивы. Все Включено в Новом отеле</b>
@@ -886,7 +896,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Ближний Восток">
   <a class="bf-tour" href="https://youtravel.me/tours/42459/%D1%81%D1%82%D0%B0%D0%BC%D0%B1%D1%83%D0%BB_%D0%B7%D0%B0_4_%D0%B4%D0%BD%D1%8F-_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0_%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D1%83%D0%BC_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/42459.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/42459.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Турция</small>
       <b>Стамбул за 4 дня- программа максимум!</b>
@@ -903,7 +913,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/76082/%D0%BE%D1%81%D0%B5%D0%BD%D0%BD%D0%B8%D0%B5_%D0%BB%D0%B8%D1%81%D1%82%D1%8C%D1%8F_%D0%B8_%D0%BC%D0%B0%D0%BD%D0%B4%D1%80%D0%B8%D0%BD%D1%8B_%D1%81%D0%B5%D1%83%D0%BB_-_%D0%BE_%D1%87%D0%B5%D0%B4%D0%B6%D1%83_-_%D0%BA%D0%B5%D0%BD%D0%B4%D0%B6%D1%83_-_%D0%BF%D1%83%D1%81%D0%B0%D0%BD_8_%D0%B4%D0%BD%D0%B5%D0%B9_%D0%BC%D0%B8%D0%BD%D0%B8-%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/76082.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/76082.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Южная Корея</small>
       <b>Осенние листья и мандрины! Сеул - о.Чеджу - Кенджу - Пусан 8 дней, мини-группа</b>
@@ -920,7 +930,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/37185/%D0%B0%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F_%D1%8D%D0%BA%D1%81%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D1%82%D1%83%D1%80" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/37185.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/37185.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Адыгея: Экскурсионный Тур</b>
@@ -937,7 +947,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/37084/%D1%82%D1%83%D1%80_%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F_%D1%80%D0%B8%D0%B2%D1%8C%D0%B5%D1%80%D0%B0_%D0%BB%D0%B0%D0%B9%D1%82" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/37084.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/37084.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Тур Водная Ривьера. Лайт</b>
@@ -954,7 +964,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/37196/%D1%82%D1%83%D1%80_%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F_%D1%80%D0%B8%D0%B2%D1%8C%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/37196.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/37196.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Тур Водная Ривьера</b>
@@ -971,7 +981,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/42252/%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%D0%B4%D0%BD%D0%B8%D0%B9_%D1%82%D1%83%D1%80_%D0%B2_%D0%B0%D0%B4%D1%8B%D0%B3%D0%B5%D1%8E_2027" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/42252.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/42252.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Новогодний тур в Адыгею 2027</b>
@@ -988,7 +998,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/37078/%D0%B0%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F_%D1%8D%D0%BA%D1%81%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BB%D0%B0%D0%B9%D1%82_" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/37078.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/37078.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Адыгея: Экскурсионный (Лайт)</b>
@@ -1005,7 +1015,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Кавказ">
   <a class="bf-tour" href="https://youtravel.me/tours/42274/%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D1%83%D1%80_%D0%B2_%D0%B0%D0%B4%D1%8B%D0%B3%D0%B5%D1%8E_2027" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/42274.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/42274.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Рождественский тур в Адыгею 2027</b>
@@ -1022,7 +1032,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/21388/%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9_%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D0%B0%D0%BA%D1%82%D0%B8%D0%B2_5_%D0%B4%D0%BD%D0%B5%D0%B9_%D0%B4%D1%80%D0%B0%D0%B9%D0%B2%D0%B0_%D0%B8_%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/21388.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/21388.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Уральский мультиактив: 5 дней драйва и открытий</b>
@@ -1039,7 +1049,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/71701/%D1%8F_%D0%B5%D0%B4%D1%83_%D0%BD%D0%B0_9_%D0%B4%D0%BD%D0%B5%D0%B9_-_%D1%86%D0%B8%D0%BA%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%B2%D0%B5%D0%BB%D0%BE%D1%82%D1%83%D1%80_%D1%81_%D0%B7%D0%B0%D0%B5%D0%B7%D0%B4%D0%BE%D0%BC_%D0%B2_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B9_%D0%B4%D0%B5%D0%BD%D1%8C" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/71701.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/71701.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Я Еду! на 9 дней - цикличный велотур с заездом в любой день</b>
@@ -1056,7 +1066,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/71700/%D1%8F_%D0%B5%D0%B4%D1%83_%D0%BD%D0%B0_8_%D0%B4%D0%BD%D0%B5%D0%B9_-_%D1%86%D0%B8%D0%BA%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%B2%D0%B5%D0%BB%D0%BE%D1%82%D1%83%D1%80_%D1%81_%D0%B7%D0%B0%D0%B5%D0%B7%D0%B4%D0%BE%D0%BC_%D0%B2_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B9_%D0%B4%D0%B5%D0%BD%D1%8C" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/71700.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/71700.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Я Еду! на 8 дней - цикличный велотур с заездом в любой день</b>
@@ -1073,7 +1083,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/66232/%D1%8F_%D0%B5%D0%B4%D1%83_%D0%BD%D0%B0_7_%D0%B4%D0%BD%D0%B5%D0%B9_-_%D1%86%D0%B8%D0%BA%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%B2%D0%B5%D0%BB%D0%BE%D1%82%D1%83%D1%80_%D1%81_%D0%B7%D0%B0%D0%B5%D0%B7%D0%B4%D0%BE%D0%BC_%D0%B2_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B9_%D0%B4%D0%B5%D0%BD%D1%8C" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/66232.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/66232.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Я Еду! на 7 дней - цикличный велотур с заездом в любой день</b>
@@ -1090,7 +1100,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/65985/%D1%8F_%D0%B5%D0%B4%D1%83_%D0%BD%D0%B0_6_%D0%B4%D0%BD%D0%B5%D0%B9_-_%D1%86%D0%B8%D0%BA%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%B2%D0%B5%D0%BB%D0%BE%D1%82%D1%83%D1%80_%D1%81_%D0%B7%D0%B0%D0%B5%D0%B7%D0%B4%D0%BE%D0%BC_%D0%B2_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B9_%D0%B4%D0%B5%D0%BD%D1%8C" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/65985.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/65985.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Я Еду! на 6 дней - цикличный велотур с заездом в любой день</b>
@@ -1107,7 +1117,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/66253/%D1%8F_%D0%B5%D0%B4%D1%83_%D0%BD%D0%B0_5_%D0%B4%D0%BD%D0%B5%D0%B9_-_%D1%86%D0%B8%D0%BA%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%B2%D0%B5%D0%BB%D0%BE%D1%82%D1%83%D1%80_%D1%81_%D0%B7%D0%B0%D0%B5%D0%B7%D0%B4%D0%BE%D0%BC_%D0%B2_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B9_%D0%B4%D0%B5%D0%BD%D1%8C" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/66253.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/66253.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Я Еду! на 5 дней - цикличный велотур с заездом в любой день</b>
@@ -1124,7 +1134,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Россия">
   <a class="bf-tour" href="https://youtravel.me/tours/66288/%D1%8F_%D0%B5%D0%B4%D1%83_%D0%BD%D0%B0_4_%D0%B4%D0%BD%D1%8F_-_%D1%86%D0%B8%D0%BA%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%B2%D0%B5%D0%BB%D0%BE%D1%82%D1%83%D1%80_%D1%81_%D0%B7%D0%B0%D0%B5%D0%B7%D0%B4%D0%BE%D0%BC_%D0%B2_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B9_%D0%B4%D0%B5%D0%BD%D1%8C" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/66288.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/66288.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Россия</small>
       <b>Я Еду! на 4 дня - цикличный велотур с заездом в любой день</b>
@@ -1141,7 +1151,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/56538/%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D1%83%D1%80_%D0%BD%D0%B0_%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2_%D0%BF%D1%85%D1%83%D0%BA%D0%B5%D1%82_%D1%82%D1%80%D0%BE%D0%BF%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%B0%D0%B9%D0%B1" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/56538.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/56538.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Таиланд</small>
       <b>Авторский тур на остров Пхукет: Тропический вайб</b>
@@ -1158,7 +1168,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/55253/%D1%84%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%B8%D0%BD%D1%8B-_%D0%B3%D1%80%D0%B0%D0%BD%D0%B4_%D1%82%D1%83%D1%80_%D0%BF%D0%BE_%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D0%B0%D0%BC" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/55253.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/55253.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Филиппины</small>
       <b>Филиппины- Гранд тур по островам</b>
@@ -1175,7 +1185,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/60214/%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D1%83%D1%80_%D0%B8%D0%B7%D1%83%D0%BC%D1%80%D1%83%D0%B4%D0%BD%D1%8B%D0%B9_%D1%82%D1%80%D0%B5%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA_%D1%82%D0%B0%D0%B8%D0%BB%D0%B0%D0%BD%D0%B4%D0%B0_%D0%BA%D1%80%D0%B0%D0%B1%D0%B8_%D1%81%D0%B0%D0%BC%D1%83%D0%B8_%D1%87%D0%B5%D0%BE_%D0%BB%D0%B0%D0%BD" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/60214.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/60214.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Таиланд</small>
       <b>Авторский тур Изумрудный треугольник Таиланда: Краби, Самуи, Чео Лан</b>
@@ -1192,7 +1202,7 @@
 
 <article class="bf-gift " data-type="place" data-region="Ближний Восток">
   <a class="bf-tour" href="https://youtravel.me/tours/53314/%D1%81%D1%82%D0%B0%D0%BC%D0%B1%D1%83%D0%BB_%D1%83%D0%B2%D0%B8%D0%B4%D0%B5%D1%82%D1%8C_%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%BE%D0%B5_%D0%B7%D0%B0_4_%D0%B4%D0%BD%D1%8F" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/53314.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/53314.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Турция</small>
       <b>Стамбул: увидеть главное за 4 дня</b>
@@ -1209,7 +1219,7 @@
 
 <article class="bf-gift " data-type="person" data-region="Европа">
   <a class="bf-tour" href="https://youtravel.me/tours/66378/%D1%81%D0%BE%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9_%D0%B2%D0%B5%D1%82%D0%B5%D1%80" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/66378.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/66378.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Португалия</small>
       <b>Соленый Ветер</b>
@@ -1226,7 +1236,7 @@
 
 <article class="bf-gift " data-type="activity" data-region="Азия">
   <a class="bf-tour" href="https://youtravel.me/tours/77302/%D0%B2%D1%8C%D0%B5%D1%82%D0%BD%D0%B0%D0%BC_%D0%BD%D1%8F%D1%87%D0%B0%D0%BD%D0%B3_%D0%B4%D0%B0%D0%BD%D0%B0%D0%BD%D0%B3_%D0%B8_%D1%84%D1%83%D0%BA%D1%83%D0%BE%D0%BA_10_%D0%B4%D0%BD%D0%B5%D0%B9" target="_blank" rel="noopener">
-    <span class="bf-tour__img"><img src="./assets/tours/77302.webp" alt="" loading="lazy" width="760" height="520"></span>
+    <span class="bf-tour__img"><img src="./assets/tours/77302.webp" alt="" loading="lazy" decoding="async" width="760" height="520"></span>
     <span class="bf-tour__body">
       <small>Вьетнам</small>
       <b>Вьетнам: Нячанг, Дананг и Фукуок. 10 дней</b>
@@ -1284,7 +1294,7 @@
 <!-- Финальный призыв -->
 <section class="bf-wrap bf-final">
   <div class="bf-final__box bf-rv">
-    <img src="./assets/promo/lava-1.webp" srcset="./assets/promo/lava-1.webp 1200w, ./assets/promo/lava-1-xl.webp 2400w" sizes="(max-width: 1440px) 100vw, 1376px" alt="" loading="lazy">
+    <img src="./assets/promo/lava-1.webp" srcset="./assets/promo/lava-1.webp 1200w, ./assets/promo/lava-1-xl.webp 2400w" sizes="(max-width: 1440px) 100vw, 1376px" alt="" loading="lazy" decoding="async">
     <h2 data-final-title>Успейте забронировать до 30 ноября</h2>
     <p><span data-countdown-line hidden>Осталось <b data-countdown></b>. </span>Цена тура не меняется, впечатление уже ждёт вас в программе.</p>
     <a class="bf-btn bf-btn_green bf-btn_l" href="#bf-catalog" data-to-catalog>Выбрать тур с&nbsp;подарком</a>
