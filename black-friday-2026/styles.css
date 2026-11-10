@@ -15,12 +15,13 @@
   --green-click: 127, 164, 12;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --pad: 16px;
-  --gap: 120px;
+  /* Отступы между блоками плавно растут от 360 до 1440 px (80 → 160 px), без скачков на брейкпоинтах — как в боевой версии */
+  --gap: clamp(80px, calc(53.33px + 7.41vw), 160px);
+  --head-gap: clamp(24px, calc(16px + 2.22vw), 48px);
   color-scheme: dark;
 }
 
 @media (min-width: 768px) { :root { --pad: 32px; } }
-@media (max-width: 1023px) { :root { --gap: 64px; } }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -45,8 +46,7 @@ button { font: inherit; color: inherit; }
 
 .bf-wrap { width: 100%; max-width: 1256px; margin: 0 auto; padding: 0 var(--pad); }
 
-main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 96px; }
-@media (max-width: 1023px) { main { padding-bottom: 48px; } }
+main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: calc(var(--gap) * .6); }
 
 /* ─── Кнопки ─── */
 .bf-btn {
@@ -99,12 +99,12 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 .bf-foot a { color: rgba(var(--white), .6); }
 
 /* ─── Заголовки секций и стеклянные карточки ─── */
-.bf-head { display: flex; flex-direction: column; gap: 16px; max-width: 760px; margin-bottom: 48px; }
+.bf-head { display: flex; flex-direction: column; gap: 16px; max-width: 760px; margin-bottom: var(--head-gap); }
 .bf-head__kicker { font-size: 13px; font-weight: 600; color: rgba(var(--white), .48); }
 .bf-head__title { margin: 0; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif; font-size: 56px; line-height: 1.05; font-weight: 700; }
 .bf-head__text { margin: 0; font-size: 18px; line-height: 26px; color: rgba(var(--white), .72); }
 @media (max-width: 1023px) {
-  .bf-head { gap: 12px; margin-bottom: 24px; }
+  .bf-head { gap: 12px; }
   .bf-head__title { font-size: 32px; line-height: 1.08; }
   .bf-head__text { font-size: 15px; line-height: 22px; }
 }
@@ -214,7 +214,7 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 
 .bf-hero__ctrl { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
 @media (max-width: 1023px) { .bf-hero__ctrl { gap: 12px; margin-top: 16px; } }
-.bf-hero__segs { flex: 1; max-width: 420px; display: flex; gap: 4px; }
+.bf-hero__segs { flex: 1; min-width: 0; display: flex; gap: 4px; }
 .bf-hero__segs button { position: relative; flex: 1; height: 16px; padding: 0; border: 0; background: none; cursor: pointer; }
 @media (max-width: 1023px) { .bf-hero__segs button { height: 32px; } }
 .bf-hero__segs button::before, .bf-hero__segs i { content: ''; position: absolute; left: 0; right: 0; top: calc(50% - 1px); height: 2px; border-radius: 2px; }
@@ -224,7 +224,7 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 .bf-hero__segs .is-on i { animation: bf-fill var(--dur, 7s) linear forwards; }
 .bf-hero.is-paused .bf-hero__segs .is-on i { animation-play-state: paused; }
 @keyframes bf-fill { to { transform: scaleX(1); } }
-.bf-hero__count { min-width: 64px; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.bf-hero__count { flex: none; min-width: 64px; text-align: right; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* ─── Типы подарков ─── */
 .bf-kinds__list { display: flex; gap: 12px; height: clamp(420px, 62vh, 620px); }
@@ -313,20 +313,18 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 
 /* ─── Как это работает ─── */
 .bf-steps__tagline {
-  margin: 0 0 120px; max-width: 980px; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif;
+  margin: 0 0 var(--gap); max-width: 980px; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif;
   font-size: clamp(36px, 5.6vw, 80px); line-height: 1.04; font-weight: 700; letter-spacing: -.03em; text-wrap: balance;
 }
 .bf-js .bf-steps__tagline span { opacity: .22; transition: opacity .6s var(--ease), color .6s var(--ease); }
 .bf-steps__tagline span.is-lit { opacity: 1; }
 .bf-steps__tagline span.is-accent.is-lit, html:not(.bf-js) .bf-steps__tagline span.is-accent { color: rgb(var(--green)); }
-@media (max-width: 1023px) { .bf-steps__tagline { margin-bottom: 64px; } }
 .bf-steps__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
 .bf-steps__list .bf-card { min-height: 260px; }
 @media (max-width: 1023px) { .bf-steps__list { grid-template-columns: 1fr; } .bf-steps__list .bf-card { min-height: 0; } }
 .bf-steps__num { margin-bottom: auto; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif; font-size: 96px; line-height: 1; font-weight: 700; color: transparent; -webkit-text-stroke: 1px rgba(var(--white), .35); }
 @media (max-width: 1023px) { .bf-steps__num { font-size: 56px; } }
-.bf-steps__why { margin-top: 120px; }
-@media (max-width: 1023px) { .bf-steps__why { margin-top: 64px; } }
+.bf-steps__why { margin-top: var(--gap); }
 .bf-steps__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 1255px) { .bf-steps__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 767px) { .bf-steps__grid { grid-template-columns: 1fr; } }
@@ -379,10 +377,10 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
   border: 1px solid rgba(var(--white), .14); background: rgba(var(--white), .1);
 }
 .bf-terms__icon svg { width: 24px; height: 24px; }
-.bf-terms__faq-head { margin-top: 120px; }
-@media (max-width: 1023px) { .bf-terms__faq-head { margin-top: 64px; } }
+/* FAQ по центру страницы: подпись, заголовок и список */
+.bf-terms__faq-head { margin-top: var(--gap); margin-inline: auto; align-items: center; text-align: center; }
 
-.bf-faq { display: grid; gap: 8px; max-width: 880px; }
+.bf-faq { display: grid; gap: 8px; max-width: 880px; margin-inline: auto; }
 .bf-faq__item {
   border-radius: 12px; border: 1px solid rgba(var(--white), .1); background: rgba(var(--white), .06);
   transition: background-color .3s var(--ease);
@@ -451,15 +449,54 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: 9
 
 /* Плюс в конце слогана: контурный серый → сплошной зелёный с поворотом, когда загораются акцентные слова */
 .bf-steps__plus {
-  display: inline-block; width: .78em; height: .78em; margin-left: .08em; vertical-align: -.04em;
+  display: inline-block; width: .78em; height: .78em; margin-left: .08em; vertical-align: -.12em;
   color: rgba(var(--white), .22); transition: color .6s var(--ease), transform .8s var(--ease);
 }
 .bf-steps__plus path { fill: none; stroke: currentColor; }
 .bf-steps__plus.is-on, html:not(.bf-js) .bf-steps__plus { color: rgb(var(--green)); transform: rotate(90deg); }
 .bf-steps__plus.is-on path, html:not(.bf-js) .bf-steps__plus path { fill: currentColor; stroke: none; }
 
-/* ─── Скорость: каталог (18+ карточек со стеклом) не рисуется, пока до него не дошли ─── */
-.bf-catalog { content-visibility: auto; contain-intrinsic-size: auto 2400px; }
+/* ─── Подарки от партнёров (как PartnerGifts.vue) ─── */
+.bf-partners { scroll-margin-top: 80px; }
+.bf-partners__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1239px) { .bf-partners__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .bf-partners__grid { grid-template-columns: minmax(0, 1fr); } }
+/* строки карточек выровнены между собой: логотип, категория, описание, подарок и кнопка — на одной линии */
+.bf-partners__card { min-width: 0; gap: 16px; }
+.bf-partners__card > * { min-width: 0; }
+@supports (grid-template-rows: subgrid) {
+  .bf-partners__card { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: subgrid; grid-row: span 5; row-gap: 16px; }
+}
+.bf-partners__logo { height: 60px; display: flex; align-items: center; }
+.bf-partners__logo img { display: block; width: auto; max-width: 100%; max-height: 60px; object-fit: contain; object-position: left center; }
+.bf-partners__cat {
+  justify-self: start; align-self: start; padding: 4px 8px; border-radius: 6px; background: rgba(var(--white), .1);
+  font-size: 12px; line-height: 16px; font-weight: 600; color: rgba(var(--white), .72);
+}
+.bf-card .bf-partners__desc { margin: 0; font-size: 14px; line-height: 20px; color: rgba(var(--white), .72); }
+.bf-partners__gift {
+  display: grid; align-content: start; gap: 8px; padding: 16px; border-radius: 12px;
+  background: rgba(var(--green), .14); border: 1px solid rgba(var(--green), .35);
+}
+.bf-partners__gift b { font-size: 20px; line-height: 24px; letter-spacing: -.3px; }
+.bf-partners__gift small { font-size: 12px; line-height: 16px; color: rgba(var(--white), .48); }
+.bf-partners__gift-k { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; line-height: 16px; color: rgba(var(--white), .48); }
+.bf-partners__plus { width: 14px; height: 14px; color: rgb(var(--green)); }
+.bf-partners__code {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 8px; min-height: 36px; padding: 6px 10px;
+  border-radius: 8px; border: 1px dashed rgba(var(--white), .4); background: none; color: rgb(var(--white));
+  font: 600 14px/18px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .5px; text-align: left; cursor: pointer;
+  transition: background-color .3s var(--ease), border-color .3s var(--ease);
+}
+.bf-partners__code i {
+  font-family: inherit; font-size: 12px; line-height: 16px; font-weight: 600; font-style: normal; letter-spacing: 0;
+  white-space: nowrap; color: rgb(var(--green));
+}
+.bf-partners__code:hover { background: rgba(var(--white), .08); border-color: rgba(var(--white), .6); }
+.bf-partners__code.is-copied { border-style: solid; border-color: rgb(var(--green)); }
+.bf-partners__code_muted { cursor: default; font-family: inherit; font-size: 13px; line-height: 18px; letter-spacing: 0; color: rgba(var(--white), .72); }
+.bf-partners__code_muted:hover { background: none; border-color: rgba(var(--white), .4); }
+.bf-partners__btn { width: 100%; min-width: 0; white-space: normal; }
 
 /* ─── Лёгкий режим (класс ставится в <head>: мало памяти, экономия трафика, 2G/3G) ───
    Размытие под карточками — самый дорогой эффект для слабой видеокарты: на тёмном фоне его почти не видно,

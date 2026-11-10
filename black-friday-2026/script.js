@@ -125,6 +125,25 @@
     }),
   )
 
+  /* ─── Подарки от партнёров: промокод копируется по клику, подпись на 1.8 с меняется на «Скопировано» ─── */
+  $$('[data-copy]').forEach((btn) => {
+    let timer = null
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy)
+      } catch {
+        return
+      }
+      btn.classList.add('is-copied')
+      $('i', btn).textContent = 'Скопировано'
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        btn.classList.remove('is-copied')
+        $('i', btn).textContent = 'Скопировать'
+      }, 1800)
+    })
+  })
+
   /* ─── Карусель главного экрана ─── */
   const hero = $('[data-hero]')
   if (hero) {
