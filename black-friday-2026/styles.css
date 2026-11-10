@@ -461,7 +461,8 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
 
 .bf-kinds__plus { width: min(520px, 44vw); right: -8%; top: 40px; }
 .bf-steps__plus-t { width: min(440px, 38vw); right: 4%; top: 0; }
-.bf-steps__plus-d { width: min(360px, 30vw); right: 2%; bottom: -60px; }
+/* размер — как у плюса в блоке условий акции (зеркально, у правого края) */
+.bf-steps__plus-d { width: min(600px, 50vw); right: -14%; bottom: -120px; }
 .bf-terms__plus { width: min(600px, 50vw); left: -14%; top: 10%; }
 @media (max-width: 1023px) {
   .bf-kinds__plus, .bf-steps__plus-d { display: none; }
