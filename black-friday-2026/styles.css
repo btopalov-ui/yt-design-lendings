@@ -357,6 +357,13 @@ main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: c
 .bf-catalog__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 16px; }
 @media (max-width: 1023px) { .bf-catalog__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 767px) { .bf-catalog__grid { grid-template-columns: 1fr; } }
+/* Карточки туров одной высоты во всём каталоге (как в боевой): «тур» и «подпись подарка» — общие строки сетки.
+   Строки чередуются «тур / подпись»; строки туров — 1fr, при авто-высоте сетки все равны самой высокой карточке,
+   и двухстрочное название подарка больше не отнимает высоту у тура над ним. */
+@supports (grid-template-rows: subgrid) {
+  .bf-catalog__grid { grid-auto-rows: 1fr auto; }
+  .bf-catalog__grid > .bf-gift { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 4px; }
+}
 .bf-catalog__more { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 40px; }
 .bf-catalog__more[hidden], .bf-catalog__more [hidden] { display: none; }
 @media (max-width: 1023px) { .bf-catalog__more { margin-top: 32px; } .bf-catalog__more .bf-btn { width: 100%; } }
