@@ -49,6 +49,11 @@ button { font: inherit; color: inherit; }
 /* overflow-x: clip — как .page-bf в боевой: фоновые плюсы выходят за край экрана и не должны давать горизонтальную прокрутку.
    На body это свойство передаётся окну браузера и работает как hidden: страницу всё равно можно было сдвинуть вбок. */
 main { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: calc(var(--gap) * .6); overflow-x: clip; }
+/* Ровные переносы на любой ширине (как в боевой): заголовки, подзаголовки и описания делятся на строки
+   примерно одной длины (balance). Проверено на заголовках подарков: balance оставляет одиночное последнее слово
+   в 4 случаях из 18, pretty — в 14, поэтому pretty только для длинных ответов FAQ. Название тура не трогаем. */
+main :is(h1, h2, h3, p, b):not(.bf-tour *) { text-wrap: balance; }
+.bf-faq p { text-wrap: pretty; }
 
 /* ─── Кнопки ─── */
 .bf-btn {
