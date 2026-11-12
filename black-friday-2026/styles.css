@@ -168,9 +168,12 @@ main :is(h1, h2, h3, p, b):not(.bf-tour *) { text-wrap: balance; }
 }
 .bf-hero__title { margin: 0; font-family: 'SF Pro Display', 'SF Pro Text', sans-serif; font-size: 42px; line-height: 1.05; font-weight: 700; letter-spacing: -.02em; }
 .bf-hero__lead { margin: 0; font-size: 18px; line-height: 28px; color: rgba(var(--white), .72); }
+/* главная мысль — лаймовым акцентом; на планшете и телефоне подзаголовок укорочен до неё */
+.bf-hero__lead-accent { font-weight: 700; color: rgb(var(--green)); }
 @media (max-width: 1023px) {
   .bf-hero__title { font-size: 26px; line-height: 1.08; }
-  .bf-hero__lead { display: none; }
+  .bf-hero__lead { font-size: 16px; line-height: 24px; }
+  .bf-hero__lead-rest { display: none; }
 }
 
 .bf-hero__stage { position: relative; min-height: 96px; }
